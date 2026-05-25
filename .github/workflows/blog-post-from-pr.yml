@@ -1,0 +1,221 @@
+name: Generate Blog Post From PR
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: blog-post-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Parse PR body
+        id: meta
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          node - <<'NODE'
+          const fs = require("node:fs");
+          const path = require("node:path");
+          
+          const body = (process.env.PR_BODY || "").replace(/\r\n/g, "\n");
+          const isEnabled = /-\s*\[[xX]\]\s*이 PR로 블로그 포스트를 생성합니다\./.test(body);
+          
+          const outputPath = process.env.GITHUB_OUTPUT;
+          const setOutput = (key, value) => {
+            fs.appendFileSync(outputPath, `${key}<<__EOF__\n${value ?? ""}\n__EOF__\n`);
+          };
+          
+          const readKeyValues = (text) => {
+            const out = {};
+            for (const rawLine of text.split("\n")) {
+              const line = rawLine.trim();
+              if (!line) continue;
+              const match = line.match(/^([a-zA-Z0-9_]+)\s*:\s*(.*)$/);
+              if (!match) continue;
+              const key = match[1].toLowerCase();
+              const value = match[2].trim();
+              if (!(key in out)) out[key] = value;
+            }
+            return out;
+          };
+          
+          const kv = readKeyValues(body);
+          
+          const required = ["category", "title_ko", "title_en"];
+          const missing = required.filter((k) => !kv[k]);
+          
+          if (!isEnabled) {
+            setOutput("enabled", "false");
+            setOutput("reason", "checkbox_not_checked");
+            process.exit(0);
+          }
+          
+          if (missing.length > 0) {
+            throw new Error(`PR 본문 메타데이터가 누락되었습니다: ${missing.join(", ")}`);
+          }
+          
+          const allowedCategories = new Set(["c1", "c2", "c3", "c4"]);
+          const category = String(kv.category).trim().toLowerCase();
+          if (!allowedCategories.has(category)) {
+            throw new Error("category는 c1/c2/c3/c4 중 하나여야 합니다.");
+          }
+          
+          const now = new Date();
+          const yyyy = String(now.getUTCFullYear());
+          const mm = String(now.getUTCMonth() + 1).padStart(2, "0");
+          const prefix = `${yyyy}-${mm}-`;
+          
+          const normalizeSlug = (value) => String(value || "").trim();
+          const validateSlug = (value) => /^\d{4}-\d{2}-\d{3}$/.test(value);
+          
+          let slug = normalizeSlug(kv.slug);
+          let slugAdded = "false";
+          
+          if (!slug) {
+            const dir = path.join(process.cwd(), "content", "posts");
+            const files = fs.readdirSync(dir);
+            let maxIndex = 0;
+            for (const file of files) {
+              const match = file.match(/^(\d{4}-\d{2})-(\d{3})\.md$/);
+              if (!match) continue;
+              if (match[1] !== `${yyyy}-${mm}`) continue;
+              const index = Number(match[2]);
+              if (Number.isFinite(index)) maxIndex = Math.max(maxIndex, index);
+            }
+            const nextIndex = String(maxIndex + 1).padStart(3, "0");
+            slug = `${prefix}${nextIndex}`;
+            slugAdded = "true";
+          }
+          
+          if (!validateSlug(slug)) {
+            throw new Error("slug는 YYYY-MM-XXX(세 자리 숫자) 형식이어야 합니다.");
+          }
+          
+          const build = String(kv.build || "true").trim().toLowerCase() !== "false";
+          
+          setOutput("enabled", "true");
+          setOutput("category", category);
+          setOutput("title_ko", kv.title_ko);
+          setOutput("title_en", kv.title_en);
+          setOutput("summary_ko", kv.summary_ko || "");
+          setOutput("summary_en", kv.summary_en || "");
+          setOutput("slug", slug);
+          setOutput("build", build ? "true" : "false");
+          setOutput("slug_added", slugAdded);
+          NODE
+
+      - name: Update PR body with generated slug
+        if: steps.meta.outputs.enabled == 'true' && steps.meta.outputs.slug_added == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const slug = "${{ steps.meta.outputs.slug }}";
+            const current = context.payload.pull_request.body || "";
+            const normalized = current.replace(/\r\n/g, "\n");
+            if (/^slug:\s*\S+/m.test(normalized)) return;
+            let updated = normalized;
+            if (/^slug:\s*$/m.test(updated)) {
+              updated = updated.replace(/^slug:\s*$/m, `slug: ${slug}`);
+            } else if (/^summary_en:.*$/m.test(updated)) {
+              updated = updated.replace(/^summary_en:.*$/m, (m) => `${m}\nslug: ${slug}`);
+            } else {
+              updated = `${updated}\nslug: ${slug}\n`;
+            }
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              body: updated
+            });
+
+      - name: Check if post already exists
+        if: steps.meta.outputs.enabled == 'true'
+        id: exists
+        env:
+          SLUG: ${{ steps.meta.outputs.slug }}
+        run: |
+          if [ -f "content/posts/${SLUG}.md" ]; then
+            echo "skip_new=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip_new=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create markdown post
+        if: steps.meta.outputs.enabled == 'true' && steps.exists.outputs.skip_new != 'true'
+        env:
+          SLUG: ${{ steps.meta.outputs.slug }}
+          CATEGORY: ${{ steps.meta.outputs.category }}
+          TITLE_KO: ${{ steps.meta.outputs.title_ko }}
+          TITLE_EN: ${{ steps.meta.outputs.title_en }}
+          SUMMARY_KO: ${{ steps.meta.outputs.summary_ko }}
+          SUMMARY_EN: ${{ steps.meta.outputs.summary_en }}
+        run: |
+          node scripts/new-post.mjs \
+            --slug "$SLUG" \
+            --category "$CATEGORY" \
+            --title-ko "$TITLE_KO" \
+            --title-en "$TITLE_EN" \
+            --summary-ko "$SUMMARY_KO" \
+            --summary-en "$SUMMARY_EN" \
+            --no-build
+
+      - name: Build blog outputs
+        if: steps.meta.outputs.enabled == 'true' && steps.meta.outputs.build == 'true'
+        run: node scripts/build-blog.mjs
+
+      - name: Commit generated files
+        if: steps.meta.outputs.enabled == 'true'
+        env:
+          SLUG: ${{ steps.meta.outputs.slug }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if [ -z "$(git status --porcelain)" ]; then
+            exit 0
+          fi
+          
+          git add content/posts pages/posts pages/data/blog_posts.json
+          git commit -m "chore(blog): generate ${SLUG}"
+          git push
+
+      - name: Comment on PR
+        if: steps.meta.outputs.enabled == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const slug = "${{ steps.meta.outputs.slug }}";
+            const build = "${{ steps.meta.outputs.build }}" === "true";
+            const lines = [
+              "블로그 포스트 자동 생성이 완료되었습니다.",
+              `- slug: ${slug}`,
+              "- 생성/갱신:",
+              `  - content/posts/${slug}.md`,
+              build ? `  - pages/posts/${slug}.html` : null,
+              build ? "  - pages/data/blog_posts.json" : null
+            ].filter(Boolean).join("\n");
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: lines
+            });

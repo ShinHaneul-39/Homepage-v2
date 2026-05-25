@@ -1,0 +1,1511 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shin Haneul</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon" href="../profile.png" />
+    <meta
+      name="description"
+      content="신하늘의 개인 홈페이지입니다. 소개, 경력, 블로그, 연락처 정보를 확인할 수 있습니다."
+    />
+    <link rel="canonical" href="https://shinhaneul.website/" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shin Haneul" />
+    <meta property="og:title" content="Shin Haneul" />
+    <meta
+      property="og:description"
+      content="신하늘의 개인 홈페이지입니다. 소개, 경력, 블로그, 연락처 정보를 확인할 수 있습니다."
+    />
+    <meta property="og:url" content="https://shinhaneul.website/" />
+    <meta property="og:image" content="https://shinhaneul.website/banner.png" />
+    <meta property="og:image:alt" content="Shin Haneul 홈페이지 배너 이미지" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shin Haneul" />
+    <meta
+      name="twitter:description"
+      content="신하늘의 개인 홈페이지입니다. 소개, 경력, 블로그, 연락처 정보를 확인할 수 있습니다."
+    />
+    <meta name="twitter:image" content="https://shinhaneul.website/banner.png" />
+    <meta name="twitter:site" content="@ShinHaneul_39" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5fbff;
+        --ink: #13212d;
+        --ink-soft: #425161;
+        --line: #d9ebf8;
+        --brand: #87ceeb;
+        --brand-strong: #5aaed6;
+        --card: rgba(255, 255, 255, 0.8);
+        --shadow: 0 12px 40px rgba(20, 67, 102, 0.12);
+        --bg-radial-1: #c8ebfb;
+        --bg-radial-2: #e7f7ff;
+        --header-border: #ffffff8c;
+        --header-bg-a: #f6fcffe8;
+        --header-bg-b: #f6fcffcc;
+        --surface: #ffffff;
+        --surface-soft: #ffffffba;
+        --surface-card: #ffffffcc;
+        --surface-strong: #ffffffd9;
+        --contact-ink: #134f74;
+        --contact-border: #b0d9ef;
+        --contact-bg-a: #f5fcff;
+        --contact-bg-b: #e7f7ff;
+        --contact-hover-ink: #0f3f5e;
+        --contact-hover-bg-a: #ebf8ff;
+        --contact-hover-bg-b: #dff3ff;
+        --footer-ink: #557085;
+        --focus-ring: #7ec2e0;
+        --section-body-ink: #2f4b61;
+        --section-muted-ink: #4e667a;
+      }
+
+      html[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #0f151b;
+        --ink: #e9f2fa;
+        --ink-soft: #b5c4d2;
+        --line: #2d3d4c;
+        --card: rgba(20, 29, 38, 0.82);
+        --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
+        --bg-radial-1: #1e3345;
+        --bg-radial-2: #233646;
+        --header-border: #273748cc;
+        --header-bg-a: #111a24ee;
+        --header-bg-b: #111a24d8;
+        --surface: #1b2733;
+        --surface-soft: #203140;
+        --surface-card: #1f2f3d;
+        --surface-strong: #213342;
+        --contact-ink: #d9ebfb;
+        --contact-border: #3f5870;
+        --contact-bg-a: #1d2d3d;
+        --contact-bg-b: #182636;
+        --contact-hover-ink: #eef7ff;
+        --contact-hover-bg-a: #23384c;
+        --contact-hover-bg-b: #1e3041;
+        --footer-ink: #9db0c1;
+        --focus-ring: #7ab9dc;
+        --section-body-ink: #dbe9f6;
+        --section-muted-ink: #bfd0df;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme]) {
+          color-scheme: dark;
+          --bg: #0f151b;
+          --ink: #e9f2fa;
+          --ink-soft: #b5c4d2;
+          --line: #2d3d4c;
+          --card: rgba(20, 29, 38, 0.82);
+          --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
+          --bg-radial-1: #1e3345;
+          --bg-radial-2: #233646;
+          --header-border: #273748cc;
+          --header-bg-a: #111a24ee;
+          --header-bg-b: #111a24d8;
+          --surface: #1b2733;
+          --surface-soft: #203140;
+          --surface-card: #1f2f3d;
+          --surface-strong: #213342;
+          --contact-ink: #d9ebfb;
+          --contact-border: #3f5870;
+          --contact-bg-a: #1d2d3d;
+          --contact-bg-b: #182636;
+          --contact-hover-ink: #eef7ff;
+          --contact-hover-bg-a: #23384c;
+          --contact-hover-bg-b: #1e3041;
+          --footer-ink: #9db0c1;
+          --focus-ring: #7ab9dc;
+          --section-body-ink: #dbe9f6;
+          --section-muted-ink: #bfd0df;
+        }
+
+        :root:not([data-theme]) .lang.active {
+          color: rgb(19, 33, 45);
+        }
+
+        :root:not([data-theme]) .chip.active {
+          background: #223648;
+          border-color: #3f5870;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: "Quicksand", "Noto Sans KR", sans-serif;
+        color: var(--ink);
+        line-height: 1.6;
+        background:
+          radial-gradient(circle at 20% -20%, var(--bg-radial-1) 0%, transparent 40%),
+          radial-gradient(circle at 90% 0%, var(--bg-radial-2) 0%, transparent 36%),
+          var(--bg);
+      }
+
+      html:lang(ko) body {
+        font-family: "Gowun Dodum", "Noto Sans KR", sans-serif;
+      }
+
+      .grain::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.14;
+        background-image: radial-gradient(#a7d0e61a 1px, transparent 1px);
+        background-size: 4px 4px;
+      }
+
+      .container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+      }
+
+      .page-shell {
+        flex: 1;
+        padding: 2rem 0 2.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--header-border);
+        background: linear-gradient(180deg, var(--header-bg-a), var(--header-bg-b));
+      }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 14px 0;
+        gap: 0.8rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: "Gowun Dodum", "Playfair Display", serif;
+        font-size: 1.15rem;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-icon {
+        display: inline-block;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        object-fit: cover;
+        background: var(--surface-soft);
+      }
+
+      nav {
+        display: flex;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+        grid-column: 2;
+        justify-self: center;
+      }
+
+      .chip {
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.44rem 0.78rem;
+        background: var(--surface);
+        color: var(--ink);
+        font-size: 0.85rem;
+        font-family: "Quicksand", "Noto Sans KR", sans-serif;
+      }
+
+      .chip.active {
+        background: #e7f6ff;
+        border-color: #9fc9e4;
+      }
+
+      html[data-theme="dark"] .chip.active {
+        background: #223648;
+        border-color: #3f5870;
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        grid-column: 3;
+        justify-self: end;
+      }
+
+      .chip:visited,
+      .chip:hover,
+      .chip:active {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .lang {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.42rem 0.72rem;
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+      }
+
+      .lang.active {
+        background: linear-gradient(135deg, var(--brand), #d9f2ff);
+      }
+
+      html[data-theme="dark"] .lang.active {
+        color: rgb(19, 33, 45);
+      }
+
+      .theme-toggle {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.42rem 0.72rem;
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+        font-size: 0.82rem;
+      }
+
+      .hero {
+        padding: 4.8rem 0 2.6rem;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.6rem;
+      }
+
+      .hero-banner {
+        margin-top: 1.4rem;
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-banner img {
+        width: 100%;
+        height: clamp(140px, 20vw, 220px);
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-main h1 {
+        margin: 0;
+        font-family: "Gowun Dodum", "Playfair Display", serif;
+        font-size: clamp(2rem, 3.6vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+      }
+
+      .hero-main p {
+        max-width: 62ch;
+        color: var(--ink-soft);
+        line-height: 1.75;
+      }
+
+      .cta {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        border: 0;
+        border-radius: 999px;
+        padding: 0.72rem 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--brand-strong), var(--brand));
+        color: white;
+        box-shadow: 0 10px 18px rgba(90, 174, 214, 0.34);
+      }
+
+      .btn.ghost {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        color: var(--ink);
+      }
+
+      .hero-side {
+        background: var(--card);
+        border: 1px solid var(--surface);
+        box-shadow: var(--shadow);
+        border-radius: 22px;
+        padding: 1.2rem;
+      }
+
+      .profile-wrap {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        margin-bottom: 0.9rem;
+        background: var(--surface);
+      }
+
+      .profile-wrap img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+      }
+
+      .stat {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+
+      .stat div {
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 0.8rem;
+      }
+
+      .stat dt {
+        margin: 0;
+        color: var(--section-muted-ink);
+        font-size: 0.78rem;
+      }
+
+      .stat dd {
+        margin: 0.25rem 0 0;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      section {
+        margin: 0;
+        background: var(--card);
+        border: 1px solid var(--surface);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        padding: 1.1rem;
+      }
+
+      h2 {
+        margin: 0 0 0.8rem;
+        font-size: 1.1rem;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .page-head h1,
+      .page-head h2 {
+        margin: 0;
+        line-height: 1.25;
+      }
+
+      .status-line {
+        margin: 0;
+        font-size: 0.92rem;
+        color: var(--section-muted-ink);
+        border: 1px dashed var(--line);
+        background: var(--surface-soft);
+        border-radius: 12px;
+        padding: 0.58rem 0.72rem;
+      }
+
+      .status-line.is-loading {
+        border-style: solid;
+      }
+
+      .status-line.is-empty {
+        border-style: dotted;
+      }
+
+      .muted {
+        color: var(--section-muted-ink);
+        font-size: 0.93rem;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .timeline article {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 0.9rem;
+        background: var(--surface-card);
+      }
+
+      .timeline-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.7rem;
+      }
+
+      .role {
+        font-weight: 700;
+      }
+
+      .meta {
+        color: var(--section-muted-ink);
+        font-size: 0.86rem;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .post {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 0.9rem;
+        background: var(--surface-card);
+      }
+
+      .post small {
+        color: #64819a;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .service-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 0.95rem;
+        background: var(--surface-card);
+      }
+
+      .service-card h3 {
+        margin: 0.3rem 0 0.6rem;
+        font-size: 1rem;
+      }
+
+      .service-card ul {
+        margin: 0;
+        padding-left: 1rem;
+        color: var(--section-body-ink);
+        line-height: 1.7;
+      }
+
+      .service-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem;
+        margin-bottom: 0.9rem;
+      }
+
+      .service-meta div {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface-strong);
+        padding: 0.72rem;
+      }
+
+      .service-meta dt {
+        margin: 0;
+        color: var(--section-muted-ink);
+        font-size: 0.82rem;
+      }
+
+      .service-meta dd {
+        margin: 0.3rem 0 0;
+        font-weight: 700;
+        color: #26455d;
+      }
+
+      .strength-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .strength-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--surface-card);
+        padding: 0.92rem;
+      }
+
+      .strength-card h3 {
+        margin: 0 0 0.45rem;
+        font-size: 1rem;
+      }
+
+      .strength-card p {
+        margin: 0;
+      }
+
+      .process-steps {
+        margin: 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 0.55rem;
+        color: var(--section-body-ink);
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .faq-list details {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface-card);
+        padding: 0.72rem 0.8rem;
+      }
+
+      .faq-list summary {
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .faq-list p {
+        margin: 0.6rem 0 0;
+        color: var(--section-body-ink);
+      }
+
+      .dm-template {
+        margin-top: 0.9rem;
+      }
+
+      .dm-template pre {
+        margin: 0.45rem 0 0;
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+        background: var(--surface-soft);
+        padding: 0.8rem;
+        white-space: pre-wrap;
+        color: var(--section-body-ink);
+      }
+
+      html[data-theme="dark"] .post small {
+        color: rgb(191, 208, 223);
+      }
+
+      html[data-theme="dark"] .service-meta dd {
+        color: rgb(219, 233, 246);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme]) .post small {
+          color: rgb(191, 208, 223);
+        }
+
+        :root:not([data-theme]) .service-meta dd {
+          color: rgb(219, 233, 246);
+        }
+      }
+
+      .thanks {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .thanks div {
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--surface-strong);
+        padding: 0.9rem;
+      }
+
+      .contact {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-top: 0.95rem;
+        padding-top: 0.95rem;
+        border-top: 1px dashed var(--line);
+      }
+
+      .contact a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--contact-ink);
+        border: 1px solid var(--contact-border);
+        background: linear-gradient(135deg, var(--contact-bg-a), var(--contact-bg-b));
+        border-radius: 12px;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .contact a svg {
+        width: 22px;
+        height: 22px;
+        fill: currentColor;
+      }
+
+      .contact a:hover {
+        color: var(--contact-hover-ink);
+        background: linear-gradient(135deg, var(--contact-hover-bg-a), var(--contact-hover-bg-b));
+        transform: translateY(-1px);
+      }
+
+      .contact a:focus-visible {
+        outline: 2px solid var(--focus-ring);
+        outline-offset: 2px;
+      }
+
+      footer {
+        padding: 1.5rem 0 2.2rem;
+        text-align: center;
+        color: var(--footer-ink);
+      }
+
+      @media (max-width: 960px) {
+        .topbar {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+
+        nav {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 3rem;
+        }
+
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .strength-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-meta {
+          grid-template-columns: 1fr;
+        }
+
+        .thanks {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="grain">
+    <header>
+      <div class="container topbar">
+        <div class="brand">
+          <img class="brand-icon" src="../profile.png" alt="" aria-hidden="true" />
+          <span data-i18n="brand.title">신하늘</span>
+        </div>
+        <nav>
+          <a class="chip active" href="./index.html" data-i18n="nav.home">Home</a>
+          <a class="chip" href="./career.html" data-i18n="nav.career">Career</a>
+          <a class="chip" href="./blog.html" data-i18n="nav.blog">Blog</a>
+          <a class="chip" href="./contact.html" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="top-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">Dark</button>
+          <button class="lang active" data-lang="ko">KO</button>
+          <button class="lang" data-lang="en">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <div class="hero-banner">
+        <img src="../banner.png" alt="Haneul banner image" />
+      </div>
+
+      <section class="hero" style="background: transparent; box-shadow: none; border: 0; padding-left: 0; padding-right: 0;">
+        <div class="hero-main">
+          <h1 data-i18n="hero.title">신하늘, 사람과 커뮤니티를 연결하는 운영자</h1>
+          <p data-i18n="hero.desc">
+            디스코드 서버 운영 경험을 기반으로 커뮤니티 구조와 사용자 흐름을 설계합니다.
+            운영 안정성과 멤버 경험을 함께 개선하는 실무 중심 접근을 지향합니다.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="./career.html" data-lang-link="./career.html" data-i18n="cta.career">경력 보기</a>
+            <a class="btn ghost" href="./blog.html" data-lang-link="./blog.html" data-i18n="cta.blog">블로그 보기</a>
+            <a class="btn ghost" href="./contact.html" data-lang-link="./contact.html" data-i18n="cta.contact">문의하기</a>
+          </div>
+        </div>
+        <aside class="hero-side">
+          <div class="profile-wrap">
+            <img src="../profile.png" alt="Haneul profile image" />
+          </div>
+          <h2 data-i18n="snapshot.title">프로필 요약</h2>
+          <dl class="stat">
+            <div>
+              <dt data-i18n="snapshot.s1">가명</dt>
+              <dd data-i18n="snapshot.s1v" data-personal-field="alias">신하늘</dd>
+            </div>
+            <div>
+              <dt data-i18n="snapshot.s2">국적</dt>
+              <dd data-i18n="snapshot.s2v" data-personal-field="nationality">중화인민공화국 (중국)</dd>
+            </div>
+            <div>
+              <dt data-i18n="snapshot.s3">취미</dt>
+              <dd data-i18n="snapshot.s3v" data-personal-field="hobby">Social, Media, Coding</dd>
+            </div>
+            <div>
+              <dt data-i18n="snapshot.s4">MBTI</dt>
+              <dd data-i18n="snapshot.s4v" data-personal-field="mbti">ISTP-T / INTP-A</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section-head page-head">
+          <h2 data-i18n="strength.title">핵심 강점</h2>
+          <span class="muted" data-i18n="strength.sub">운영 실무에 바로 적용 가능한 기준을 명확하게 제공합니다.</span>
+        </div>
+        <div class="strength-grid">
+          <article class="strength-card">
+            <h3 data-i18n="strength.c1.t">운영 구조 설계</h3>
+            <p class="muted" data-i18n="strength.c1.d">신규 유저의 첫 3분 동선과 관리자 운영 동선을 함께 고려해 구조를 설계합니다.</p>
+          </article>
+          <article class="strength-card">
+            <h3 data-i18n="strength.c2.t">커뮤니케이션 기준</h3>
+            <p class="muted" data-i18n="strength.c2.d">규정 집행과 사람 중심 응대의 균형을 위해 상황별 대응 원칙을 정리합니다.</p>
+          </article>
+          <article class="strength-card">
+            <h3 data-i18n="strength.c3.t">자동화 도입</h3>
+            <p class="muted" data-i18n="strength.c3.d">봇/로그 자동화를 통해 반복 업무를 줄이고 추적 가능한 운영 흐름을 만듭니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head page-head">
+          <h2 data-i18n="process.title">작업 프로세스</h2>
+          <span class="muted" data-i18n="process.sub">문의부터 적용까지 핵심 단계만 간결하게 진행합니다.</span>
+        </div>
+        <ol class="process-steps">
+          <li data-i18n="process.s1">문의 접수: 현재 문제와 목표를 DM으로 공유합니다.</li>
+          <li data-i18n="process.s2">현황 파악: 서버 구조/권한/봇 설정 상태를 빠르게 진단합니다.</li>
+          <li data-i18n="process.s3">개선 제안: 우선순위 기반으로 적용 가능한 변경안을 제시합니다.</li>
+          <li data-i18n="process.s4">적용 및 점검: 적용 후 운영 안정성과 멤버 경험을 함께 확인합니다.</li>
+        </ol>
+      </section>
+
+      <section>
+        <div class="section-head page-head">
+          <h2 data-i18n="career.title">대표 경력 타임라인</h2>
+          <span class="muted" data-i18n="career.sub">역할/영역별 필터로 경력을 빠르게 탐색할 수 있습니다.</span>
+        </div>
+        <div class="timeline">
+          <article>
+            <div class="timeline-top">
+              <div class="role">🧑‍💼 매니저 · 🦊 나인의 신비로운 작업실</div>
+              <div class="meta">24.10 ~</div>
+            </div>
+            <p class="muted">운영 구조 조정, 팀 협업, 멤버 경험 안정화.</p>
+          </article>
+          <article>
+            <div class="timeline-top">
+              <div class="role">🛡️ 총 관리자 · 평화로운 다용도 소통방 !</div>
+              <div class="meta">22.05 ~</div>
+            </div>
+            <p class="muted">소유자/총 관리자와 협조하여 전체적인 서버 운영 관리.</p>
+          </article>
+          <article>
+            <div class="timeline-top">
+              <div class="role">🛠️ 관리자 · RazerShot</div>
+              <div class="meta">26.04 ~</div>
+            </div>
+            <p class="muted">대규모 커뮤니티 운영 프로세스 참여.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head page-head">
+          <h2 data-i18n="service.title">단발성 외주 작업</h2>
+          <span class="muted" data-i18n="service.sub">서버 상황에 맞춰 필요한 작업만 진행합니다.</span>
+        </div>
+        <dl class="service-meta">
+          <div>
+            <dt data-i18n="service.meta.price.label">가격</dt>
+            <dd data-i18n="service.meta.price.value">무료</dd>
+          </div>
+          <div>
+            <dt data-i18n="service.meta.scope.label">범위</dt>
+            <dd data-i18n="service.meta.scope.value">디스코드 이내</dd>
+          </div>
+          <div>
+            <dt data-i18n="service.meta.time.label">소요시간</dt>
+            <dd data-i18n="service.meta.time.value">최소 1시간 ~ 최대 1주일</dd>
+          </div>
+          <div>
+            <dt data-i18n="service.meta.contact.label">문의 방식</dt>
+            <dd data-i18n="service.meta.contact.value">Discord DM</dd>
+          </div>
+        </dl>
+        <div class="service-grid">
+          <article class="service-card">
+            <small data-i18n="service.freq.tag">주요 진행</small>
+            <h3 data-i18n="service.freq.title">자주 진행하는 작업</h3>
+            <ul>
+              <li data-i18n="service.freq.i1">디스코드 역할/채널 권한 설정 검토 및 수정</li>
+              <li data-i18n="service.freq.i2">솔이/ProBot/Sapphire 서버 관리 봇 셋업</li>
+              <li data-i18n="service.freq.i3">서버에 맞는 유틸리티 봇 추천 및 설정</li>
+            </ul>
+          </article>
+          <article class="service-card">
+            <small data-i18n="service.oc.tag">가끔 진행</small>
+            <h3 data-i18n="service.oc.title">요청 시 진행 가능한 작업</h3>
+            <ul>
+              <li data-i18n="service.oc.i1">역할/채널 구조 개편</li>
+              <li data-i18n="service.oc.i2">역할/채널 디자인 개선</li>
+              <li data-i18n="service.oc.i3">서버 전용 봇 개발</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head page-head">
+          <h2 data-i18n="blog.title">블로그 카테고리 시안</h2>
+          <span class="muted" data-i18n="blog.sub">카테고리 탐색 + 상세 아카이브 구조</span>
+        </div>
+        <div class="blog-grid">
+          <article class="post">
+            <small data-i18n="blog.c1">디스코드 운영</small>
+            <h3>신규 유저 온보딩을 망치지 않는 채널 구조</h3>
+            <p class="muted">첫 인상 3분 안에 이탈률을 줄이는 실제 운영 팁 정리.</p>
+          </article>
+          <article class="post">
+            <small data-i18n="blog.c2">개발 기록</small>
+            <h3>운영 로그 자동화를 위한 봇 워크플로 설계</h3>
+            <p class="muted">누가, 언제, 무엇을 바꿨는지 추적 가능한 구조.</p>
+          </article>
+          <article class="post">
+            <small data-i18n="blog.c3">개인 회고</small>
+            <h3>갈등 상황에서 관리자 커뮤니케이션 원칙</h3>
+            <p class="muted">팀 균형과 커뮤니티 신뢰를 동시에 지키는 기준.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-i18n="contact.title">연락 및 링크</h2>
+        <div class="faq-list">
+          <details>
+            <summary data-i18n="faq.q1">비용은 어떻게 되나요?</summary>
+            <p data-i18n="faq.a1">현재 단발성 외주 작업은 무료로 진행하고 있습니다.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q2">어떤 범위까지 가능한가요?</summary>
+            <p data-i18n="faq.a2">디스코드 서버 내부 구조/권한/봇 운영 범위 중심으로 지원합니다.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q3">보통 얼마나 걸리나요?</summary>
+            <p data-i18n="faq.a3">작업 난이도에 따라 최소 1시간, 최대 1주일 정도 소요됩니다.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q4">문의 시 무엇을 보내면 좋나요?</summary>
+            <p data-i18n="faq.a4">서버 규모, 현재 문제, 원하는 결과, 사용 중인 봇 정보를 보내주시면 빠르게 파악할 수 있습니다.</p>
+          </details>
+        </div>
+        <div class="contact">
+          <a href="discord://-/users/959784288717520937" data-social-key="Discord" aria-label="Discord" title="Discord">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M20.32 4.37a19.79 19.79 0 0 0-4.95-1.53.07.07 0 0 0-.07.04c-.21.38-.44.88-.6 1.27a18.26 18.26 0 0 0-5.4 0 12.58 12.58 0 0 0-.61-1.27.08.08 0 0 0-.07-.04 19.74 19.74 0 0 0-4.95 1.53.07.07 0 0 0-.03.03C.53 9.06-.32 13.6.1 18.08a.08.08 0 0 0 .03.06 19.86 19.86 0 0 0 5.99 3.03.08.08 0 0 0 .08-.03c.46-.63.88-1.3 1.23-2 .03-.06 0-.13-.06-.15a12.99 12.99 0 0 1-1.87-.9c-.06-.03-.06-.12-.01-.16.12-.09.24-.18.35-.27.02-.02.05-.02.07-.01 3.93 1.79 8.18 1.79 12.06 0 .02-.01.05-.01.07.01.11.09.23.18.35.27.05.04.05.13-.01.16-.6.35-1.22.65-1.87.9-.06.02-.09.09-.06.15.35.7.77 1.37 1.23 2a.08.08 0 0 0 .08.03 19.73 19.73 0 0 0 6-3.03.08.08 0 0 0 .03-.06c.5-5.18-.84-9.69-3.55-13.68a.06.06 0 0 0-.03-.03ZM8.02 15.35c-1.18 0-2.15-1.09-2.15-2.43s.95-2.43 2.15-2.43c1.21 0 2.17 1.1 2.15 2.43 0 1.34-.95 2.43-2.15 2.43Zm7.95 0c-1.18 0-2.15-1.09-2.15-2.43s.95-2.43 2.15-2.43c1.21 0 2.17 1.1 2.15 2.43 0 1.34-.94 2.43-2.15 2.43Z"></path>
+            </svg>
+          </a>
+          <a href="https://github.com/ShinHaneul-39" data-social-key="GitHub" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.59 2 12.25c0 4.53 2.87 8.37 6.84 9.72.5.1.66-.22.66-.49 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.21-3.37-1.21-.45-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.09 0-1.12.39-2.03 1.03-2.75-.11-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 7.07c.85 0 1.7.12 2.5.36 1.9-1.33 2.74-1.05 2.74-1.05.56 1.42.21 2.47.11 2.73.64.72 1.03 1.63 1.03 2.75 0 3.96-2.34 4.82-4.57 5.08.36.32.69.95.69 1.93 0 1.4-.01 2.52-.01 2.87 0 .27.18.6.67.49A10.24 10.24 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z"></path>
+            </svg>
+          </a>
+          <a href="https://open.spotify.com/user/312a6vtoanw5rvzhshbsx7k52cwu" data-social-key="Spotify" target="_blank" rel="noreferrer" aria-label="Spotify" title="Spotify">
+            <svg viewBox="0 0 20 20" role="img" aria-hidden="true" fill="currentColor">
+              <path transform="translate(-84 -7319)" d="M99.915,7327.865 C96.692,7325.951 91.375,7325.775 88.297,7326.709 C87.803,7326.858 87.281,7326.58 87.131,7326.085 C86.981,7325.591 87.26,7325.069 87.754,7324.919 C91.287,7323.846 97.159,7324.053 100.87,7326.256 C101.314,7326.52 101.46,7327.094 101.196,7327.538 C100.934,7327.982 100.358,7328.129 99.915,7327.865 L99.915,7327.865 Z M99.81,7330.7 C99.584,7331.067 99.104,7331.182 98.737,7330.957 C96.05,7329.305 91.952,7328.827 88.773,7329.792 C88.36,7329.916 87.925,7329.684 87.8,7329.272 C87.676,7328.86 87.908,7328.425 88.32,7328.3 C91.951,7327.198 96.466,7327.732 99.553,7329.629 C99.92,7329.854 100.035,7330.334 99.81,7330.7 L99.81,7330.7 Z M98.586,7333.423 C98.406,7333.717 98.023,7333.81 97.729,7333.63 C95.381,7332.195 92.425,7331.871 88.944,7332.666 C88.609,7332.743 88.274,7332.533 88.198,7332.197 C88.121,7331.862 88.33,7331.528 88.667,7331.451 C92.476,7330.58 95.743,7330.955 98.379,7332.566 C98.673,7332.746 98.766,7333.129 98.586,7333.423 L98.586,7333.423 Z M94,7319 C88.477,7319 84,7323.477 84,7329 C84,7334.523 88.477,7339 94,7339 C99.523,7339 104,7334.523 104,7329 C104,7323.478 99.523,7319.001 94,7319.001 L94,7319 Z"></path>
+            </svg>
+          </a>
+          <a href="https://steamcommunity.com/profiles/76561199634726678" data-social-key="Steam" target="_blank" rel="noreferrer" aria-label="Steam" title="Steam">
+            <svg viewBox="0 0 32 32" role="img" aria-hidden="true" fill="currentColor">
+              <path d="M18.102 12.129c0-0 0-0 0-0.001 0-1.564 1.268-2.831 2.831-2.831s2.831 1.268 2.831 2.831c0 1.564-1.267 2.831-2.831 2.831-0 0-0 0-0.001 0h0c-0 0-0 0-0.001 0-1.563 0-2.83-1.267-2.83-2.83 0-0 0-0 0-0.001v0zM24.691 12.135c0-2.081-1.687-3.768-3.768-3.768s-3.768 1.687-3.768 3.768c0 2.081 1.687 3.768 3.768 3.768v0c2.080-0.003 3.765-1.688 3.768-3.767v-0zM10.427 23.76l-1.841-0.762c0.524 1.078 1.611 1.808 2.868 1.808 1.317 0 2.448-0.801 2.93-1.943l0.008-0.021c0.155-0.362 0.246-0.784 0.246-1.226 0-1.757-1.424-3.181-3.181-3.181-0.405 0-0.792 0.076-1.148 0.213l0.022-0.007 1.903 0.787c0.852 0.364 1.439 1.196 1.439 2.164 0 1.296-1.051 2.347-2.347 2.347-0.324 0-0.632-0.066-0.913-0.184l0.015 0.006zM15.974 1.004c-7.857 0.001-14.301 6.046-14.938 13.738l-0.004 0.054 8.038 3.322c0.668-0.462 1.495-0.737 2.387-0.737 0.001 0 0.002 0 0.002 0h-0c0.079 0 0.156 0.005 0.235 0.008l3.575-5.176v-0.074c0.003-3.12 2.533-5.648 5.653-5.648 3.122 0 5.653 2.531 5.653 5.653s-2.531 5.653-5.653 5.653h-0.131l-5.094 3.638c0 0.065 0.005 0.131 0.005 0.199 0 0.001 0 0.002 0 0.003 0 2.342-1.899 4.241-4.241 4.241-2.047 0-3.756-1.451-4.153-3.38l-0.005-0.027-5.755-2.383c1.841 6.345 7.601 10.905 14.425 10.905 8.281 0 14.994-6.713 14.994-14.994s-6.713-14.994-14.994-14.994c-0 0-0.001 0-0.001 0h0z"></path>
+            </svg>
+          </a>
+          <a
+            href="https://www.tiktok.com/@shin._.haneul"
+            data-social-key="TikTok"
+            data-social="short-video"
+            data-href-default="https://www.tiktok.com/@shin._.haneul"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="TikTok"
+            title="TikTok"
+          >
+            <svg viewBox="0 0 32 32" role="img" aria-hidden="true" fill="currentColor">
+              <path d="M16.656 1.029c1.637-0.025 3.262-0.012 4.886-0.025 0.054 2.031 0.878 3.859 2.189 5.213l-0.002-0.002c1.411 1.271 3.247 2.095 5.271 2.235l0.028 0.002v5.036c-1.912-0.048-3.71-0.489-5.331-1.247l0.082 0.034c-0.784-0.377-1.447-0.764-2.077-1.196l0.052 0.034c-0.012 3.649 0.012 7.298-0.025 10.934-0.103 1.853-0.719 3.543-1.707 4.954l0.020-0.031c-1.652 2.366-4.328 3.919-7.371 4.011l-0.014 0c-0.123 0.006-0.268 0.009-0.414 0.009-1.73 0-3.347-0.482-4.725-1.319l0.040 0.023c-2.508-1.509-4.238-4.091-4.558-7.094l-0.004-0.041c-0.025-0.625-0.037-1.25-0.012-1.862 0.49-4.779 4.494-8.476 9.361-8.476 0.547 0 1.083 0.047 1.604 0.136l-0.056-0.008c0.025 1.849-0.050 3.699-0.050 5.548-0.423-0.153-0.911-0.242-1.42-0.242-1.868 0-3.457 1.194-4.045 2.861l-0.009 0.030c-0.133 0.427-0.21 0.918-0.21 1.426 0 0.206 0.013 0.41 0.037 0.61l-0.002-0.024c0.332 2.046 2.086 3.59 4.201 3.59 0.061 0 0.121-0.001 0.181-0.004l-0.009 0c1.463-0.044 2.733-0.831 3.451-1.994l0.010-0.018c0.267-0.372 0.45-0.822 0.511-1.311l0.001-0.014c0.125-2.237 0.075-4.461 0.087-6.698 0.012-5.036-0.012-10.060 0.025-15.083z"></path>
+            </svg>
+          </a>
+          <a href="https://x.com/ShinHaneul_39" data-social-key="X" target="_blank" rel="noreferrer" aria-label="X" title="X">
+            <svg viewBox="0 0 16 16" role="img" aria-hidden="true" fill="currentColor">
+              <path d="M12.6 0.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867 -5.07 -4.425 5.07H0.316l5.733 -6.57L0 0.75h5.063l3.495 4.633L12.601 0.75Zm-0.86 13.028h1.36L4.323 2.145H2.865z" stroke-width="1"></path>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCPTwDMBhqTQEuHENaHQDUKg" data-social-key="YouTUbe" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 32 32" role="img" aria-hidden="true" fill="currentColor">
+              <path d="M12.932 20.459v-8.917l7.839 4.459zM30.368 8.735c-0.354-1.301-1.354-2.307-2.625-2.663l-0.027-0.006c-3.193-0.406-6.886-0.638-10.634-0.638-0.381 0-0.761 0.002-1.14 0.007l0.058-0.001c-0.322-0.004-0.701-0.007-1.082-0.007-3.748 0-7.443 0.232-11.070 0.681l0.434-0.044c-1.297 0.363-2.297 1.368-2.644 2.643l-0.006 0.026c-0.4 2.109-0.628 4.536-0.628 7.016 0 0.088 0 0.176 0.001 0.263l-0-0.014c-0 0.074-0.001 0.162-0.001 0.25 0 2.48 0.229 4.906 0.666 7.259l-0.038-0.244c0.354 1.301 1.354 2.307 2.625 2.663l0.027 0.006c3.193 0.406 6.886 0.638 10.634 0.638 0.38 0 0.76-0.002 1.14-0.007l-0.058 0.001c0.322 0.004 0.702 0.007 1.082 0.007 3.749 0 7.443-0.232 11.070-0.681l-0.434 0.044c1.298-0.362 2.298-1.368 2.646-2.643l0.006-0.026c0.399-2.109 0.627-4.536 0.627-7.015 0-0.088-0-0.176-0.001-0.263l0 0.013c0-0.074 0.001-0.162 0.001-0.25 0-2.48-0.229-4.906-0.666-7.259l0.038 0.244z"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="dm-template">
+          <h3 data-i18n="dm.title">DM 문의 템플릿</h3>
+          <p class="muted" data-i18n="dm.sub">아래 형식으로 보내주시면 진단 속도가 빨라집니다.</p>
+          <pre data-i18n="dm.body">[서버명]
+[현재 인원/활성 규모]
+[현재 문제 상황]
+[원하는 결과]
+[현재 사용 중인 봇]
+[우선순위/마감 희망일]</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2022-2026 신하늘, All Rights Reserved.
+    </footer>
+
+    <script>
+      const i18n = {
+        ko: {
+          "brand.title": "신하늘",
+          "nav.home": "Home",
+          "nav.career": "Career",
+          "nav.blog": "Blog",
+          "nav.contact": "Contact",
+          "hero.title": "신하늘, 사람과 커뮤니티를 연결하는 운영자",
+          "hero.desc":
+            "디스코드 서버 운영 경험을 기반으로 커뮤니티 구조와 사용자 흐름을 설계합니다. 운영 안정성과 멤버 경험을 함께 개선하는 실무 중심 접근을 지향합니다.",
+          "cta.career": "경력 보기",
+          "cta.blog": "블로그 보기",
+          "cta.contact": "문의하기",
+          "snapshot.title": "프로필 요약",
+          "snapshot.s1": "가명",
+          "snapshot.s1v": "신하늘",
+          "snapshot.s2": "국적",
+          "snapshot.s2v": "중화인민공화국 (중국)",
+          "snapshot.s3": "취미",
+          "snapshot.s3v": "Social, Media, Coding",
+          "snapshot.s4": "MBTI",
+          "snapshot.s4v": "ISTP-T / INTP-A",
+          "career.title": "대표 경력 타임라인",
+          "career.sub": "역할/영역별 필터로 경력을 빠르게 탐색할 수 있습니다.",
+          "blog.title": "블로그 카테고리 시안",
+          "blog.sub": "카테고리 탐색 + 상세 아카이브 구조",
+          "blog.c1": "디스코드 운영",
+          "blog.c2": "개발 기록",
+          "blog.c3": "개인 회고",
+          "service.title": "단발성 외주 작업",
+          "service.sub": "서버 상황에 맞춰 필요한 작업만 진행합니다.",
+          "service.meta.price.label": "가격",
+          "service.meta.price.value": "무료",
+          "service.meta.scope.label": "범위",
+          "service.meta.scope.value": "디스코드 이내",
+          "service.meta.time.label": "소요시간",
+          "service.meta.time.value": "최소 1시간 ~ 최대 1주일",
+          "service.meta.contact.label": "문의 방식",
+          "service.meta.contact.value": "Discord DM",
+          "service.freq.tag": "주요 진행",
+          "service.freq.title": "자주 진행하는 작업",
+          "service.freq.i1": "디스코드 역할/채널 권한 설정 검토 및 수정",
+          "service.freq.i2": "솔이/ProBot/Sapphire 서버 관리 봇 셋업",
+          "service.freq.i3": "서버에 맞는 유틸리티 봇 추천 및 설정",
+          "service.oc.tag": "가끔 진행",
+          "service.oc.title": "요청 시 진행 가능한 작업",
+          "service.oc.i1": "역할/채널 구조 개편",
+          "service.oc.i2": "역할/채널 디자인 개선",
+          "service.oc.i3": "서버 전용 봇 개발",
+          "strength.title": "핵심 강점",
+          "strength.sub": "운영 실무에 바로 적용 가능한 기준을 명확하게 제공합니다.",
+          "strength.c1.t": "운영 구조 설계",
+          "strength.c1.d": "신규 유저의 첫 3분 동선과 관리자 운영 동선을 함께 고려해 구조를 설계합니다.",
+          "strength.c2.t": "커뮤니케이션 기준",
+          "strength.c2.d": "규정 집행과 사람 중심 응대의 균형을 위해 상황별 대응 원칙을 정리합니다.",
+          "strength.c3.t": "자동화 도입",
+          "strength.c3.d": "봇/로그 자동화를 통해 반복 업무를 줄이고 추적 가능한 운영 흐름을 만듭니다.",
+          "process.title": "작업 프로세스",
+          "process.sub": "문의부터 적용까지 핵심 단계만 간결하게 진행합니다.",
+          "process.s1": "문의 접수: 현재 문제와 목표를 DM으로 공유합니다.",
+          "process.s2": "현황 파악: 서버 구조/권한/봇 설정 상태를 빠르게 진단합니다.",
+          "process.s3": "개선 제안: 우선순위 기반으로 적용 가능한 변경안을 제시합니다.",
+          "process.s4": "적용 및 점검: 적용 후 운영 안정성과 멤버 경험을 함께 확인합니다.",
+          "contact.title": "연락 및 링크",
+          "faq.q1": "비용은 어떻게 되나요?",
+          "faq.a1": "현재 단발성 외주 작업은 무료로 진행하고 있습니다.",
+          "faq.q2": "어떤 범위까지 가능한가요?",
+          "faq.a2": "디스코드 서버 내부 구조/권한/봇 운영 범위 중심으로 지원합니다.",
+          "faq.q3": "보통 얼마나 걸리나요?",
+          "faq.a3": "작업 난이도에 따라 최소 1시간, 최대 1주일 정도 소요됩니다.",
+          "faq.q4": "문의 시 무엇을 보내면 좋나요?",
+          "faq.a4": "서버 규모, 현재 문제, 원하는 결과, 사용 중인 봇 정보를 보내주시면 빠르게 파악할 수 있습니다.",
+          "dm.title": "DM 문의 템플릿",
+          "dm.sub": "아래 형식으로 보내주시면 진단 속도가 빨라집니다.",
+          "dm.body":
+            "[서버명]\n[현재 인원/활성 규모]\n[현재 문제 상황]\n[원하는 결과]\n[현재 사용 중인 봇]\n[우선순위/마감 희망일]"
+        },
+        en: {
+          "brand.title": "Shin Haneul",
+          "nav.home": "Home",
+          "nav.career": "Career",
+          "nav.blog": "Blog",
+          "nav.contact": "Contact",
+          "hero.title": "Shin Haneul, an operator connecting people and communities",
+          "hero.desc":
+            "Based on Discord operations experience, I design community structure and user flow with a practical, member-centered approach.",
+          "cta.career": "View Career",
+          "cta.blog": "View Blog",
+          "cta.contact": "Contact",
+          "snapshot.title": "Brand Snapshot",
+          "snapshot.s1": "Alias",
+          "snapshot.s1v": "Shin Haneul",
+          "snapshot.s2": "Nationality",
+          "snapshot.s2v": "People's Republic of China",
+          "snapshot.s3": "Hobby",
+          "snapshot.s3v": "Social, Media, Coding",
+          "snapshot.s4": "MBTI",
+          "snapshot.s4v": "ISTP-T / INTP-A",
+          "career.title": "Featured Career Timeline",
+          "career.sub": "Explore career history quickly through role and domain filters.",
+          "blog.title": "Blog Category Draft",
+          "blog.sub": "Category navigation + detailed archive structure",
+          "blog.c1": "Discord Ops",
+          "blog.c2": "Dev Log",
+          "blog.c3": "Retrospective",
+          "service.title": "One-Off Commission Work",
+          "service.sub": "I handle only the tasks your server actually needs.",
+          "service.meta.price.label": "Price",
+          "service.meta.price.value": "Free",
+          "service.meta.scope.label": "Scope",
+          "service.meta.scope.value": "Within Discord only",
+          "service.meta.time.label": "Duration",
+          "service.meta.time.value": "From 1 hour up to 1 week",
+          "service.meta.contact.label": "Contact Method",
+          "service.meta.contact.value": "Discord DM",
+          "service.freq.tag": "Common",
+          "service.freq.title": "Frequently Requested",
+          "service.freq.i1": "Review and fix Discord role/channel permissions",
+          "service.freq.i2": "Set up Soli, ProBot, and Sapphire management bots",
+          "service.freq.i3": "Recommend and configure utility bots for your server",
+          "service.oc.tag": "Occasional",
+          "service.oc.title": "Available On Request",
+          "service.oc.i1": "Role/channel structure revamp",
+          "service.oc.i2": "Role/channel design improvement",
+          "service.oc.i3": "Custom bot development for your server",
+          "strength.title": "Core Strengths",
+          "strength.sub": "Clear standards that can be directly applied to community operations.",
+          "strength.c1.t": "Operations Architecture",
+          "strength.c1.d": "I design structure around both first-3-minute onboarding flow and operator workflow.",
+          "strength.c2.t": "Communication Standards",
+          "strength.c2.d": "I define response principles that balance policy enforcement with people-first communication.",
+          "strength.c3.t": "Automation Adoption",
+          "strength.c3.d": "I reduce repetitive tasks and improve traceability through bot and logging automation.",
+          "process.title": "Work Process",
+          "process.sub": "A concise process from inquiry to implementation.",
+          "process.s1": "Inquiry: Share your current issue and goal via DM.",
+          "process.s2": "Assessment: Quickly review server structure, permissions, and bot setup.",
+          "process.s3": "Proposal: Suggest practical improvements based on priority.",
+          "process.s4": "Apply & Review: Apply changes and confirm stability and member experience.",
+          "contact.title": "Contact & Links",
+          "faq.q1": "How much does it cost?",
+          "faq.a1": "Current one-off support is provided for free.",
+          "faq.q2": "What is the support scope?",
+          "faq.a2": "Support focuses on Discord server structure, permissions, and bot operations.",
+          "faq.q3": "How long does it usually take?",
+          "faq.a3": "Depending on complexity, from about 1 hour up to 1 week.",
+          "faq.q4": "What should I include in DM?",
+          "faq.a4": "Please include server size, current issue, target outcome, and bots currently in use.",
+          "dm.title": "DM Inquiry Template",
+          "dm.sub": "Sending this format helps speed up diagnosis.",
+          "dm.body":
+            "[Server Name]\n[Current Members/Activity Size]\n[Current Issue]\n[Desired Outcome]\n[Bots In Use]\n[Priority/Preferred Deadline]"
+        },
+
+        
+      };
+
+      const navLinks = Array.from(document.querySelectorAll("nav .chip"));
+      const themeToggleButton = document.querySelector("[data-theme-toggle]");
+      const darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
+      navLinks.forEach((link) => {
+        link.dataset.baseHref = (link.getAttribute("href") || "").split("?")[0];
+      });
+
+      const CAMPAIGN_STORAGE_KEY = "campaignParams:v1";
+      const CAMPAIGN_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+      const CAMPAIGN_ALLOWED_KEYS = new Set([
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+        "utm_id",
+        "source_platform",
+        "creative_format",
+        "marketing_tactic",
+        "gclid",
+        "fbclid",
+        "msclkid"
+      ]);
+      const CAMPAIGN_MAX_VALUE_LENGTH = 200;
+
+      const normalizeCampaignKey = (key) => String(key || "").trim().toLowerCase();
+
+      const isAllowedCampaignKey = (key) => {
+        if (!key) return false;
+        return CAMPAIGN_ALLOWED_KEYS.has(key);
+      };
+
+      const getSafeCampaignValue = (value) => {
+        const raw = String(value || "").trim();
+        if (!raw) return "";
+        if (raw.length > CAMPAIGN_MAX_VALUE_LENGTH) return "";
+        return raw;
+      };
+
+      const extractCampaignParams = (search) => {
+        const query = new URLSearchParams(search || "");
+        const result = {};
+        for (const [rawKey, rawValue] of query.entries()) {
+          const key = normalizeCampaignKey(rawKey);
+          if (!isAllowedCampaignKey(key)) continue;
+          const value = getSafeCampaignValue(rawValue);
+          if (!value) continue;
+          result[key] = value;
+        }
+        return result;
+      };
+
+      const storeCampaignParams = (search) => {
+        const nextParams = extractCampaignParams(search);
+        if (Object.keys(nextParams).length === 0) return;
+        try {
+          const existingParams = loadCampaignParams();
+          const mergedParams = { ...existingParams, ...nextParams };
+          window.localStorage.setItem(
+            CAMPAIGN_STORAGE_KEY,
+            JSON.stringify({ storedAt: Date.now(), params: mergedParams })
+          );
+        } catch (error) {}
+      };
+
+      const loadCampaignParams = () => {
+        try {
+          const raw = window.localStorage.getItem(CAMPAIGN_STORAGE_KEY);
+          if (!raw) return {};
+          const data = JSON.parse(raw);
+          if (!data || typeof data !== "object") return {};
+          const storedAt = Number(data.storedAt || 0);
+          if (!storedAt || Date.now() - storedAt > CAMPAIGN_TTL_MS) {
+            window.localStorage.removeItem(CAMPAIGN_STORAGE_KEY);
+            return {};
+          }
+          const params = data.params && typeof data.params === "object" ? data.params : {};
+          const sanitized = {};
+          Object.keys(params).forEach((rawKey) => {
+            const key = normalizeCampaignKey(rawKey);
+            if (!isAllowedCampaignKey(key)) return;
+            const value = getSafeCampaignValue(params[rawKey]);
+            if (value) sanitized[key] = value;
+          });
+          return sanitized;
+        } catch (error) {
+          return {};
+        }
+      };
+
+      const shouldSkipHrefMerge = (href) => {
+        const value = String(href || "").trim();
+        if (!value) return true;
+        if (value.startsWith("#")) return true;
+        if (/^(mailto:|tel:|javascript:|data:)/i.test(value)) return true;
+        if (value.startsWith("//")) return true;
+        const schemeMatch = value.match(/^([a-z][a-z0-9+.-]*):/i);
+        if (schemeMatch && !/^https?:/i.test(value)) return true;
+        if (/^https?:\/\//i.test(value)) {
+          try {
+            const url = new URL(value);
+            if (url.origin !== window.location.origin) return true;
+          } catch (error) {
+            return true;
+          }
+        }
+        return false;
+      };
+
+      const mergeParamsIntoHref = (href, nextParams) => {
+        if (shouldSkipHrefMerge(href)) return href;
+        const original = String(href);
+        const hashIndex = original.indexOf("#");
+        const hash = hashIndex >= 0 ? original.slice(hashIndex) : "";
+        const withoutHash = hashIndex >= 0 ? original.slice(0, hashIndex) : original;
+        const queryIndex = withoutHash.indexOf("?");
+        const path = queryIndex >= 0 ? withoutHash.slice(0, queryIndex) : withoutHash;
+        const query = queryIndex >= 0 ? withoutHash.slice(queryIndex + 1) : "";
+        const params = new URLSearchParams(query);
+        Object.keys(nextParams || {}).forEach((key) => {
+          const value = nextParams[key];
+          if (value === undefined || value === null || value === "") return;
+          params.set(key, String(value));
+        });
+        const nextQuery = params.toString();
+        return nextQuery ? `${path}?${nextQuery}${hash}` : `${path}${hash}`;
+      };
+
+      const getResolvedTheme = () => {
+        const explicit = document.documentElement.dataset.theme;
+        if (explicit === "dark" || explicit === "light") return explicit;
+        return darkMedia.matches ? "dark" : "light";
+      };
+
+      const syncThemeToggle = () => {
+        if (!themeToggleButton) return;
+        const isDark = getResolvedTheme() === "dark";
+        themeToggleButton.textContent = isDark ? "Light" : "Dark";
+        themeToggleButton.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+        themeToggleButton.setAttribute("aria-pressed", String(isDark));
+      };
+
+      const applyStoredTheme = () => {
+        try {
+          const savedTheme = window.localStorage.getItem("preferredTheme");
+          if (savedTheme === "dark" || savedTheme === "light") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (e) {
+          // Ignore storage access errors.
+        }
+      };
+
+      const syncNavLang = (lang) => {
+        const storedCampaignParams = loadCampaignParams();
+        const currentCampaignParams = extractCampaignParams(window.location.search);
+        const merged = { lang, ...storedCampaignParams, ...currentCampaignParams };
+        navLinks.forEach((link) => {
+          const baseHref = link.dataset.baseHref || "./index.html";
+          link.setAttribute("href", mergeParamsIntoHref(baseHref, merged));
+        });
+        document.querySelectorAll("[data-lang-link]").forEach((link) => {
+          const baseHref = link.dataset.langLink || "./index.html";
+          link.setAttribute("href", mergeParamsIntoHref(baseHref, merged));
+        });
+      };
+
+      const getInitialLang = () => {
+        const queryLang = new URLSearchParams(window.location.search).get("lang");
+        if (queryLang && i18n[queryLang]) return queryLang;
+        try {
+          const savedLang = window.localStorage.getItem("preferredLang");
+          if (savedLang && i18n[savedLang]) return savedLang;
+        } catch (e) {
+          // Ignore storage access errors.
+        }
+        return i18n[document.documentElement.lang] ? document.documentElement.lang : "ko";
+      };
+
+      let personalInfoMap = {};
+
+      const parseCsv = (csvText) => {
+        const rows = [];
+        let row = [];
+        let cell = "";
+        let inQuotes = false;
+        for (let i = 0; i < csvText.length; i += 1) {
+          const char = csvText[i];
+          const next = csvText[i + 1];
+          if (char === '"') {
+            if (inQuotes && next === '"') {
+              cell += '"';
+              i += 1;
+            } else {
+              inQuotes = !inQuotes;
+            }
+            continue;
+          }
+          if (!inQuotes && char === ",") {
+            row.push(cell);
+            cell = "";
+            continue;
+          }
+          if (!inQuotes && (char === "\n" || char === "\r")) {
+            if (char === "\r" && next === "\n") i += 1;
+            row.push(cell);
+            rows.push(row);
+            row = [];
+            cell = "";
+            continue;
+          }
+          cell += char;
+        }
+        if (cell.length > 0 || row.length > 0) {
+          row.push(cell);
+          rows.push(row);
+        }
+        return rows;
+      };
+
+      const applyPersonalInfo = () => {
+        const alias = personalInfoMap["가명"];
+        const nationality = personalInfoMap["국적"];
+        const hobby = personalInfoMap["취미"];
+        const mbti = personalInfoMap["MBTI"];
+        const fieldMap = {
+          alias,
+          nationality,
+          hobby,
+          mbti
+        };
+
+        document.querySelectorAll("[data-personal-field]").forEach((el) => {
+          const field = el.dataset.personalField;
+          const value = fieldMap[field];
+          if (value) el.textContent = value;
+        });
+
+        const socialLinkMap = {};
+        Object.keys(personalInfoMap).forEach((key) => {
+          if (key.startsWith("소셜 - ")) {
+            const socialName = key.replace("소셜 - ", "");
+            socialLinkMap[socialName] = personalInfoMap[key];
+          }
+        });
+
+        document.querySelectorAll("[data-social-key]").forEach((anchor) => {
+          const key = anchor.dataset.socialKey;
+          const url = socialLinkMap[key];
+          if (url) anchor.setAttribute("href", url);
+        });
+
+        const shortVideo = document.querySelector("[data-social='short-video']");
+        if (shortVideo) {
+          if (socialLinkMap.TikTok) shortVideo.dataset.hrefDefault = socialLinkMap.TikTok;
+        }
+      };
+
+      const loadPersonalInfo = async () => {
+        try {
+          const response = await fetch("../personal_info.csv");
+          if (!response.ok) return;
+          const csvText = await response.text();
+          const rows = parseCsv(csvText);
+          const bodyRows = rows.slice(1);
+          personalInfoMap = {};
+          bodyRows.forEach((row) => {
+            const key = row[0];
+            const value = row[1];
+            if (key && value) personalInfoMap[key] = value;
+          });
+          applyPersonalInfo();
+          setLang(document.documentElement.lang || "ko");
+        } catch (e) {
+          // Keep default fallback copy when loading fails.
+        }
+      };
+
+      const setLang = (lang) => {
+        document.documentElement.lang = lang;
+        const pack = i18n[lang] || i18n.ko;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.dataset.i18n;
+          if (pack[key]) el.textContent = pack[key];
+        });
+        const shortVideo = document.querySelector("[data-social='short-video']");
+        if (shortVideo) {
+          shortVideo.href = shortVideo.dataset.hrefDefault;
+          const platformName = "TikTok";
+          shortVideo.setAttribute("aria-label", platformName);
+          shortVideo.title = platformName;
+        }
+        syncNavLang(lang);
+        try {
+          window.localStorage.setItem("preferredLang", lang);
+        } catch (e) {
+          // Ignore storage access errors.
+        }
+        document.querySelectorAll(".lang").forEach((b) => {
+          const isActive = b.dataset.lang === lang;
+          b.classList.toggle("active", isActive);
+          b.setAttribute("aria-pressed", String(isActive));
+        });
+      };
+
+      document.querySelectorAll(".lang").forEach((btn) => {
+        btn.addEventListener("click", () => setLang(btn.dataset.lang));
+      });
+      if (themeToggleButton) {
+        themeToggleButton.addEventListener("click", () => {
+          const currentTheme = getResolvedTheme();
+          const nextTheme = currentTheme === "dark" ? "light" : "dark";
+          document.documentElement.dataset.theme = nextTheme;
+          try {
+            window.localStorage.setItem("preferredTheme", nextTheme);
+          } catch (e) {
+            // Ignore storage access errors.
+          }
+          syncThemeToggle();
+        });
+      }
+      if (darkMedia.addEventListener) {
+        darkMedia.addEventListener("change", () => {
+          if (!document.documentElement.dataset.theme) syncThemeToggle();
+        });
+      }
+      storeCampaignParams(window.location.search);
+      applyStoredTheme();
+      syncThemeToggle();
+      setLang(getInitialLang());
+      loadPersonalInfo();
+    </script>
+  </body>
+</html>

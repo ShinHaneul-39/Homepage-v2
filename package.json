@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build:blog": "node scripts/build-blog.mjs",
+    "new:post": "node scripts/new-post.mjs"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}
