@@ -36,23 +36,10 @@
       href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/global.css" />
     <style>
       :root {
-        --bg: #f5fbff;
-        --ink: #13212d;
-        --ink-soft: #425161;
-        --line: #d9ebf8;
-        --brand: #87ceeb;
         --brand-strong: #5aaed6;
-        --card: rgba(255, 255, 255, 0.8);
-        --shadow: 0 12px 40px rgba(20, 67, 102, 0.12);
-        --bg-radial-1: #c8ebfb;
-        --bg-radial-2: #e7f7ff;
-        --header-border: #ffffff8c;
-        --header-bg-a: #f6fcffe8;
-        --header-bg-b: #f6fcffcc;
-        --surface: #ffffff;
-        --surface-soft: #ffffffba;
         --surface-card: #ffffffcc;
         --surface-strong: #ffffffd9;
         --contact-ink: #134f74;
@@ -62,27 +49,11 @@
         --contact-hover-ink: #0f3f5e;
         --contact-hover-bg-a: #ebf8ff;
         --contact-hover-bg-b: #dff3ff;
-        --footer-ink: #557085;
         --focus-ring: #7ec2e0;
         --section-body-ink: #2f4b61;
         --section-muted-ink: #4e667a;
       }
-
       html[data-theme="dark"] {
-        color-scheme: dark;
-        --bg: #0f151b;
-        --ink: #e9f2fa;
-        --ink-soft: #b5c4d2;
-        --line: #2d3d4c;
-        --card: rgba(20, 29, 38, 0.82);
-        --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
-        --bg-radial-1: #1e3345;
-        --bg-radial-2: #233646;
-        --header-border: #273748cc;
-        --header-bg-a: #111a24ee;
-        --header-bg-b: #111a24d8;
-        --surface: #1b2733;
-        --surface-soft: #203140;
         --surface-card: #1f2f3d;
         --surface-strong: #213342;
         --contact-ink: #d9ebfb;
@@ -92,28 +63,12 @@
         --contact-hover-ink: #eef7ff;
         --contact-hover-bg-a: #23384c;
         --contact-hover-bg-b: #1e3041;
-        --footer-ink: #9db0c1;
         --focus-ring: #7ab9dc;
         --section-body-ink: #dbe9f6;
         --section-muted-ink: #bfd0df;
       }
-
       @media (prefers-color-scheme: dark) {
         :root:not([data-theme]) {
-          color-scheme: dark;
-          --bg: #0f151b;
-          --ink: #e9f2fa;
-          --ink-soft: #b5c4d2;
-          --line: #2d3d4c;
-          --card: rgba(20, 29, 38, 0.82);
-          --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
-          --bg-radial-1: #1e3345;
-          --bg-radial-2: #233646;
-          --header-border: #273748cc;
-          --header-bg-a: #111a24ee;
-          --header-bg-b: #111a24d8;
-          --surface: #1b2733;
-          --surface-soft: #203140;
           --surface-card: #1f2f3d;
           --surface-strong: #213342;
           --contact-ink: #d9ebfb;
@@ -123,44 +78,11 @@
           --contact-hover-ink: #eef7ff;
           --contact-hover-bg-a: #23384c;
           --contact-hover-bg-b: #1e3041;
-          --footer-ink: #9db0c1;
           --focus-ring: #7ab9dc;
           --section-body-ink: #dbe9f6;
           --section-muted-ink: #bfd0df;
         }
-
-        :root:not([data-theme]) .lang.active {
-          color: rgb(19, 33, 45);
-        }
-
-        :root:not([data-theme]) .chip.active {
-          background: #223648;
-          border-color: #3f5870;
-        }
       }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        font-family: "Quicksand", "Noto Sans KR", sans-serif;
-        color: var(--ink);
-        line-height: 1.6;
-        background:
-          radial-gradient(circle at 20% -20%, var(--bg-radial-1) 0%, transparent 40%),
-          radial-gradient(circle at 90% 0%, var(--bg-radial-2) 0%, transparent 36%),
-          var(--bg);
-      }
-
-      html:lang(ko) body {
-        font-family: "Gowun Dodum", "Noto Sans KR", sans-serif;
-      }
-
       .grain::before {
         content: "";
         position: fixed;
@@ -170,135 +92,12 @@
         background-image: radial-gradient(#a7d0e61a 1px, transparent 1px);
         background-size: 4px 4px;
       }
-
-      .container {
-        width: min(1120px, 92%);
-        margin: 0 auto;
-      }
-
-      .page-shell {
-        flex: 1;
-        padding: 2rem 0 2.4rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--header-border);
-        background: linear-gradient(180deg, var(--header-bg-a), var(--header-bg-b));
-      }
-
-      .topbar {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        padding: 14px 0;
-        gap: 0.8rem;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        font-family: "Gowun Dodum", "Playfair Display", serif;
-        font-size: 1.15rem;
-        letter-spacing: 0.02em;
-      }
-
-      .brand-icon {
-        display: inline-block;
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 50%;
-        border: 1px solid var(--line);
-        object-fit: cover;
-        background: var(--surface-soft);
-      }
-
-      nav {
-        display: flex;
-        gap: 0.55rem;
-        flex-wrap: wrap;
-        grid-column: 2;
-        justify-self: center;
-      }
-
-      .chip {
-        text-decoration: none;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 0.44rem 0.78rem;
-        background: var(--surface);
-        color: var(--ink);
-        font-size: 0.85rem;
-        font-family: "Quicksand", "Noto Sans KR", sans-serif;
-      }
-
-      .chip.active {
-        background: #e7f6ff;
-        border-color: #9fc9e4;
-      }
-
-      html[data-theme="dark"] .chip.active {
-        background: #223648;
-        border-color: #3f5870;
-      }
-
-      .top-actions {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.35rem;
-        grid-column: 3;
-        justify-self: end;
-      }
-
-      .chip:visited,
-      .chip:hover,
-      .chip:active {
-        color: var(--ink);
-        text-decoration: none;
-      }
-
-      .lang {
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 0.42rem 0.72rem;
-        background: var(--surface);
-        color: var(--ink);
-        cursor: pointer;
-      }
-
-      .lang.active {
-        background: linear-gradient(135deg, var(--brand), #d9f2ff);
-      }
-
-      html[data-theme="dark"] .lang.active {
-        color: rgb(19, 33, 45);
-      }
-
-      .theme-toggle {
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 0.42rem 0.72rem;
-        background: var(--surface);
-        color: var(--ink);
-        cursor: pointer;
-        font-size: 0.82rem;
-      }
-
       .hero {
         padding: 4.8rem 0 2.6rem;
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 1.6rem;
       }
-
       .hero-banner {
         margin-top: 1.4rem;
         border-radius: 26px;
@@ -306,14 +105,12 @@
         border: 1px solid var(--surface);
         box-shadow: var(--shadow);
       }
-
       .hero-banner img {
         width: 100%;
         height: clamp(140px, 20vw, 220px);
         object-fit: cover;
         display: block;
       }
-
       .hero-main h1 {
         margin: 0;
         font-family: "Gowun Dodum", "Playfair Display", serif;
@@ -321,20 +118,17 @@
         line-height: 1.1;
         letter-spacing: 0.01em;
       }
-
       .hero-main p {
         max-width: 62ch;
         color: var(--ink-soft);
         line-height: 1.75;
       }
-
       .cta {
         margin-top: 1rem;
         display: flex;
         gap: 0.8rem;
         flex-wrap: wrap;
       }
-
       .btn {
         display: inline-block;
         border: 0;
@@ -344,19 +138,16 @@
         text-decoration: none;
         cursor: pointer;
       }
-
       .btn.primary {
         background: linear-gradient(135deg, var(--brand-strong), var(--brand));
         color: white;
         box-shadow: 0 10px 18px rgba(90, 174, 214, 0.34);
       }
-
       .btn.ghost {
         background: var(--surface);
         border: 1px solid var(--line);
         color: var(--ink);
       }
-
       .hero-side {
         background: var(--card);
         border: 1px solid var(--surface);
@@ -364,7 +155,6 @@
         border-radius: 22px;
         padding: 1.2rem;
       }
-
       .profile-wrap {
         border-radius: 16px;
         overflow: hidden;
@@ -372,40 +162,34 @@
         margin-bottom: 0.9rem;
         background: var(--surface);
       }
-
       .profile-wrap img {
         width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         display: block;
       }
-
       .stat {
         margin: 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
       }
-
       .stat div {
         background: var(--surface-soft);
         border: 1px solid var(--line);
         border-radius: 14px;
         padding: 0.8rem;
       }
-
       .stat dt {
         margin: 0;
         color: var(--section-muted-ink);
         font-size: 0.78rem;
       }
-
       .stat dd {
         margin: 0.25rem 0 0;
         font-size: 1rem;
         font-weight: 700;
       }
-
       section {
         margin: 0;
         background: var(--card);
@@ -414,12 +198,10 @@
         box-shadow: var(--shadow);
         padding: 1.1rem;
       }
-
       h2 {
         margin: 0 0 0.8rem;
         font-size: 1.1rem;
       }
-
       .section-head {
         display: flex;
         justify-content: space-between;
@@ -427,13 +209,11 @@
         gap: 1rem;
         flex-wrap: wrap;
       }
-
       .page-head h1,
       .page-head h2 {
         margin: 0;
         line-height: 1.25;
       }
-
       .status-line {
         margin: 0;
         font-size: 0.92rem;
@@ -443,138 +223,114 @@
         border-radius: 12px;
         padding: 0.58rem 0.72rem;
       }
-
       .status-line.is-loading {
         border-style: solid;
       }
-
       .status-line.is-empty {
         border-style: dotted;
       }
-
       .muted {
         color: var(--section-muted-ink);
         font-size: 0.93rem;
       }
-
       .timeline {
         display: grid;
         gap: 0.8rem;
       }
-
       .timeline article {
         border: 1px solid var(--line);
         border-radius: 14px;
         padding: 0.9rem;
         background: var(--surface-card);
       }
-
       .timeline-top {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
         gap: 0.7rem;
       }
-
       .role {
         font-weight: 700;
       }
-
       .meta {
         color: var(--section-muted-ink);
         font-size: 0.86rem;
       }
-
       .blog-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.8rem;
       }
-
       .post {
         border: 1px solid var(--line);
         border-radius: 14px;
         padding: 0.9rem;
         background: var(--surface-card);
       }
-
       .post small {
         color: #64819a;
       }
-
       .service-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.8rem;
       }
-
       .service-card {
         border: 1px solid var(--line);
         border-radius: 14px;
         padding: 0.95rem;
         background: var(--surface-card);
       }
-
       .service-card h3 {
         margin: 0.3rem 0 0.6rem;
         font-size: 1rem;
       }
-
       .service-card ul {
         margin: 0;
         padding-left: 1rem;
         color: var(--section-body-ink);
         line-height: 1.7;
       }
-
       .service-meta {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.7rem;
         margin-bottom: 0.9rem;
       }
-
       .service-meta div {
         border: 1px solid var(--line);
         border-radius: 12px;
         background: var(--surface-strong);
         padding: 0.72rem;
       }
-
       .service-meta dt {
         margin: 0;
         color: var(--section-muted-ink);
         font-size: 0.82rem;
       }
-
       .service-meta dd {
         margin: 0.3rem 0 0;
         font-weight: 700;
         color: #26455d;
       }
-
       .strength-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.8rem;
       }
-
       .strength-card {
         border: 1px solid var(--line);
         border-radius: 14px;
         background: var(--surface-card);
         padding: 0.92rem;
       }
-
       .strength-card h3 {
         margin: 0 0 0.45rem;
         font-size: 1rem;
       }
-
       .strength-card p {
         margin: 0;
       }
-
       .process-steps {
         margin: 0;
         padding-left: 1.2rem;
@@ -582,33 +338,27 @@
         gap: 0.55rem;
         color: var(--section-body-ink);
       }
-
       .faq-list {
         display: grid;
         gap: 0.6rem;
       }
-
       .faq-list details {
         border: 1px solid var(--line);
         border-radius: 12px;
         background: var(--surface-card);
         padding: 0.72rem 0.8rem;
       }
-
       .faq-list summary {
         cursor: pointer;
         font-weight: 700;
       }
-
       .faq-list p {
         margin: 0.6rem 0 0;
         color: var(--section-body-ink);
       }
-
       .dm-template {
         margin-top: 0.9rem;
       }
-
       .dm-template pre {
         margin: 0.45rem 0 0;
         border: 1px dashed var(--line);
@@ -618,38 +368,31 @@
         white-space: pre-wrap;
         color: var(--section-body-ink);
       }
-
       html[data-theme="dark"] .post small {
         color: rgb(191, 208, 223);
       }
-
       html[data-theme="dark"] .service-meta dd {
         color: rgb(219, 233, 246);
       }
-
       @media (prefers-color-scheme: dark) {
         :root:not([data-theme]) .post small {
           color: rgb(191, 208, 223);
         }
-
         :root:not([data-theme]) .service-meta dd {
           color: rgb(219, 233, 246);
         }
       }
-
       .thanks {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.75rem;
       }
-
       .thanks div {
         border-radius: 12px;
         border: 1px solid var(--line);
         background: var(--surface-strong);
         padding: 0.9rem;
       }
-
       .contact {
         display: flex;
         gap: 0.8rem;
@@ -658,7 +401,6 @@
         padding-top: 0.95rem;
         border-top: 1px dashed var(--line);
       }
-
       .contact a {
         display: inline-flex;
         align-items: center;
@@ -673,63 +415,46 @@
         padding: 0;
         transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
       }
-
       .contact a svg {
         width: 22px;
         height: 22px;
         fill: currentColor;
       }
-
       .contact a:hover {
         color: var(--contact-hover-ink);
         background: linear-gradient(135deg, var(--contact-hover-bg-a), var(--contact-hover-bg-b));
         transform: translateY(-1px);
       }
-
       .contact a:focus-visible {
         outline: 2px solid var(--focus-ring);
         outline-offset: 2px;
       }
-
-      footer {
-        padding: 1.5rem 0 2.2rem;
-        text-align: center;
-        color: var(--footer-ink);
-      }
-
       @media (max-width: 960px) {
         .topbar {
           display: flex;
           justify-content: space-between;
           flex-wrap: wrap;
         }
-
         nav {
           width: 100%;
           justify-content: center;
         }
-
         .hero {
           grid-template-columns: 1fr;
           padding-top: 3rem;
         }
-
         .blog-grid {
           grid-template-columns: 1fr;
         }
-
         .strength-grid {
           grid-template-columns: 1fr;
         }
-
         .service-grid {
           grid-template-columns: 1fr;
         }
-
         .service-meta {
           grid-template-columns: 1fr;
         }
-
         .thanks {
           grid-template-columns: 1fr;
         }
@@ -756,12 +481,10 @@
         </div>
       </div>
     </header>
-
     <main class="container page-shell">
       <div class="hero-banner">
         <img src="./banner.png" alt="Haneul banner image" />
       </div>
-
       <section class="hero" style="background: transparent; box-shadow: none; border: 0; padding-left: 0; padding-right: 0;">
         <div class="hero-main">
           <h1 data-i18n="hero.title">신하늘, 사람과 커뮤니티를 연결하는 운영자</h1>
@@ -800,7 +523,6 @@
           </dl>
         </aside>
       </section>
-
       <section>
         <div class="section-head page-head">
           <h2 data-i18n="strength.title">핵심 강점</h2>
@@ -821,7 +543,6 @@
           </article>
         </div>
       </section>
-
       <section>
         <div class="section-head page-head">
           <h2 data-i18n="process.title">작업 프로세스</h2>
@@ -834,7 +555,6 @@
           <li data-i18n="process.s4">적용 및 점검: 적용 후 운영 안정성과 멤버 경험을 함께 확인합니다.</li>
         </ol>
       </section>
-
       <section>
         <div class="section-head page-head">
           <h2 data-i18n="career.title">대표 경력 타임라인</h2>
@@ -864,7 +584,6 @@
           </article>
         </div>
       </section>
-
       <section>
         <div class="section-head page-head">
           <h2 data-i18n="service.title">단발성 외주 작업</h2>
@@ -909,7 +628,6 @@
           </article>
         </div>
       </section>
-
       <section>
         <div class="section-head page-head">
           <h2 data-i18n="blog.title">블로그 카테고리 시안</h2>
@@ -933,7 +651,6 @@
           </article>
         </div>
       </section>
-
       <section>
         <h2 data-i18n="contact.title">연락 및 링크</h2>
         <div class="faq-list">
@@ -1012,11 +729,9 @@
         </div>
       </section>
     </main>
-
     <footer>
       © 2022-2026 신하늘, All Rights Reserved.
     </footer>
-
     <script>
       const i18n = {
         ko: {
@@ -1171,191 +886,8 @@
           "dm.body":
             "[Server Name]\n[Current Members/Activity Size]\n[Current Issue]\n[Desired Outcome]\n[Bots In Use]\n[Priority/Preferred Deadline]"
         },
-
-        
       };
-
-      const navLinks = Array.from(document.querySelectorAll("nav .chip"));
-      const themeToggleButton = document.querySelector("[data-theme-toggle]");
-      const darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
-      navLinks.forEach((link) => {
-        link.dataset.baseHref = (link.getAttribute("href") || "").split("?")[0];
-      });
-
-      const CAMPAIGN_STORAGE_KEY = "campaignParams:v1";
-      const CAMPAIGN_TTL_MS = 30 * 24 * 60 * 60 * 1000;
-      const CAMPAIGN_ALLOWED_KEYS = new Set([
-        "utm_source",
-        "utm_medium",
-        "utm_campaign",
-        "utm_content",
-        "utm_term",
-        "utm_id",
-        "source_platform",
-        "creative_format",
-        "marketing_tactic",
-        "gclid",
-        "fbclid",
-        "msclkid"
-      ]);
-      const CAMPAIGN_MAX_VALUE_LENGTH = 200;
-
-      const normalizeCampaignKey = (key) => String(key || "").trim().toLowerCase();
-
-      const isAllowedCampaignKey = (key) => {
-        if (!key) return false;
-        return CAMPAIGN_ALLOWED_KEYS.has(key);
-      };
-
-      const getSafeCampaignValue = (value) => {
-        const raw = String(value || "").trim();
-        if (!raw) return "";
-        if (raw.length > CAMPAIGN_MAX_VALUE_LENGTH) return "";
-        return raw;
-      };
-
-      const extractCampaignParams = (search) => {
-        const query = new URLSearchParams(search || "");
-        const result = {};
-        for (const [rawKey, rawValue] of query.entries()) {
-          const key = normalizeCampaignKey(rawKey);
-          if (!isAllowedCampaignKey(key)) continue;
-          const value = getSafeCampaignValue(rawValue);
-          if (!value) continue;
-          result[key] = value;
-        }
-        return result;
-      };
-
-      const storeCampaignParams = (search) => {
-        const nextParams = extractCampaignParams(search);
-        if (Object.keys(nextParams).length === 0) return;
-        try {
-          const existingParams = loadCampaignParams();
-          const mergedParams = { ...existingParams, ...nextParams };
-          window.localStorage.setItem(
-            CAMPAIGN_STORAGE_KEY,
-            JSON.stringify({ storedAt: Date.now(), params: mergedParams })
-          );
-        } catch (error) {}
-      };
-
-      const loadCampaignParams = () => {
-        try {
-          const raw = window.localStorage.getItem(CAMPAIGN_STORAGE_KEY);
-          if (!raw) return {};
-          const data = JSON.parse(raw);
-          if (!data || typeof data !== "object") return {};
-          const storedAt = Number(data.storedAt || 0);
-          if (!storedAt || Date.now() - storedAt > CAMPAIGN_TTL_MS) {
-            window.localStorage.removeItem(CAMPAIGN_STORAGE_KEY);
-            return {};
-          }
-          const params = data.params && typeof data.params === "object" ? data.params : {};
-          const sanitized = {};
-          Object.keys(params).forEach((rawKey) => {
-            const key = normalizeCampaignKey(rawKey);
-            if (!isAllowedCampaignKey(key)) return;
-            const value = getSafeCampaignValue(params[rawKey]);
-            if (value) sanitized[key] = value;
-          });
-          return sanitized;
-        } catch (error) {
-          return {};
-        }
-      };
-
-      const shouldSkipHrefMerge = (href) => {
-        const value = String(href || "").trim();
-        if (!value) return true;
-        if (value.startsWith("#")) return true;
-        if (/^(mailto:|tel:|javascript:|data:)/i.test(value)) return true;
-        if (value.startsWith("//")) return true;
-        const schemeMatch = value.match(/^([a-z][a-z0-9+.-]*):/i);
-        if (schemeMatch && !/^https?:/i.test(value)) return true;
-        if (/^https?:\/\//i.test(value)) {
-          try {
-            const url = new URL(value);
-            if (url.origin !== window.location.origin) return true;
-          } catch (error) {
-            return true;
-          }
-        }
-        return false;
-      };
-
-      const mergeParamsIntoHref = (href, nextParams) => {
-        if (shouldSkipHrefMerge(href)) return href;
-        const original = String(href);
-        const hashIndex = original.indexOf("#");
-        const hash = hashIndex >= 0 ? original.slice(hashIndex) : "";
-        const withoutHash = hashIndex >= 0 ? original.slice(0, hashIndex) : original;
-        const queryIndex = withoutHash.indexOf("?");
-        const path = queryIndex >= 0 ? withoutHash.slice(0, queryIndex) : withoutHash;
-        const query = queryIndex >= 0 ? withoutHash.slice(queryIndex + 1) : "";
-        const params = new URLSearchParams(query);
-        Object.keys(nextParams || {}).forEach((key) => {
-          const value = nextParams[key];
-          if (value === undefined || value === null || value === "") return;
-          params.set(key, String(value));
-        });
-        const nextQuery = params.toString();
-        return nextQuery ? `${path}?${nextQuery}${hash}` : `${path}${hash}`;
-      };
-
-      const getResolvedTheme = () => {
-        const explicit = document.documentElement.dataset.theme;
-        if (explicit === "dark" || explicit === "light") return explicit;
-        return darkMedia.matches ? "dark" : "light";
-      };
-
-      const syncThemeToggle = () => {
-        if (!themeToggleButton) return;
-        const isDark = getResolvedTheme() === "dark";
-        themeToggleButton.textContent = isDark ? "Light" : "Dark";
-        themeToggleButton.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-        themeToggleButton.setAttribute("aria-pressed", String(isDark));
-      };
-
-      const applyStoredTheme = () => {
-        try {
-          const savedTheme = window.localStorage.getItem("preferredTheme");
-          if (savedTheme === "dark" || savedTheme === "light") {
-            document.documentElement.dataset.theme = savedTheme;
-          }
-        } catch (e) {
-          // Ignore storage access errors.
-        }
-      };
-
-      const syncNavLang = (lang) => {
-        const storedCampaignParams = loadCampaignParams();
-        const currentCampaignParams = extractCampaignParams(window.location.search);
-        const merged = { lang, ...storedCampaignParams, ...currentCampaignParams };
-        navLinks.forEach((link) => {
-          const baseHref = link.dataset.baseHref || "./index.html";
-          link.setAttribute("href", mergeParamsIntoHref(baseHref, merged));
-        });
-        document.querySelectorAll("[data-lang-link]").forEach((link) => {
-          const baseHref = link.dataset.langLink || "./index.html";
-          link.setAttribute("href", mergeParamsIntoHref(baseHref, merged));
-        });
-      };
-
-      const getInitialLang = () => {
-        const queryLang = new URLSearchParams(window.location.search).get("lang");
-        if (queryLang && i18n[queryLang]) return queryLang;
-        try {
-          const savedLang = window.localStorage.getItem("preferredLang");
-          if (savedLang && i18n[savedLang]) return savedLang;
-        } catch (e) {
-          // Ignore storage access errors.
-        }
-        return i18n[document.documentElement.lang] ? document.documentElement.lang : "ko";
-      };
-
       let personalInfoMap = {};
-
       const parseCsv = (csvText) => {
         const rows = [];
         let row = [];
@@ -1394,7 +926,6 @@
         }
         return rows;
       };
-
       const applyPersonalInfo = () => {
         const alias = personalInfoMap["가명"];
         const nationality = personalInfoMap["국적"];
@@ -1406,13 +937,11 @@
           hobby,
           mbti
         };
-
         document.querySelectorAll("[data-personal-field]").forEach((el) => {
           const field = el.dataset.personalField;
           const value = fieldMap[field];
           if (value) el.textContent = value;
         });
-
         const socialLinkMap = {};
         Object.keys(personalInfoMap).forEach((key) => {
           if (key.startsWith("소셜 - ")) {
@@ -1420,19 +949,16 @@
             socialLinkMap[socialName] = personalInfoMap[key];
           }
         });
-
         document.querySelectorAll("[data-social-key]").forEach((anchor) => {
           const key = anchor.dataset.socialKey;
           const url = socialLinkMap[key];
           if (url) anchor.setAttribute("href", url);
         });
-
         const shortVideo = document.querySelector("[data-social='short-video']");
         if (shortVideo) {
           if (socialLinkMap.TikTok) shortVideo.dataset.hrefDefault = socialLinkMap.TikTok;
         }
       };
-
       const loadPersonalInfo = async () => {
         try {
           const response = await fetch("./personal_info.csv");
@@ -1447,12 +973,11 @@
             if (key && value) personalInfoMap[key] = value;
           });
           applyPersonalInfo();
-          setLang(document.documentElement.lang || "ko");
+          setLang(getInitialLang());
         } catch (e) {
           // Keep default fallback copy when loading fails.
         }
       };
-
       const setLang = (lang) => {
         document.documentElement.lang = lang;
         const pack = i18n[lang] || i18n.ko;
@@ -1479,33 +1004,8 @@
           b.setAttribute("aria-pressed", String(isActive));
         });
       };
-
-      document.querySelectorAll(".lang").forEach((btn) => {
-        btn.addEventListener("click", () => setLang(btn.dataset.lang));
-      });
-      if (themeToggleButton) {
-        themeToggleButton.addEventListener("click", () => {
-          const currentTheme = getResolvedTheme();
-          const nextTheme = currentTheme === "dark" ? "light" : "dark";
-          document.documentElement.dataset.theme = nextTheme;
-          try {
-            window.localStorage.setItem("preferredTheme", nextTheme);
-          } catch (e) {
-            // Ignore storage access errors.
-          }
-          syncThemeToggle();
-        });
-      }
-      if (darkMedia.addEventListener) {
-        darkMedia.addEventListener("change", () => {
-          if (!document.documentElement.dataset.theme) syncThemeToggle();
-        });
-      }
-      storeCampaignParams(window.location.search);
-      applyStoredTheme();
-      syncThemeToggle();
-      setLang(getInitialLang());
       loadPersonalInfo();
     </script>
+    <script src="./assets/js/global.js"></script>
   </body>
 </html>

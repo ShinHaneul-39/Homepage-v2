@@ -65,6 +65,8 @@ const parseFrontMatter = (rawText) => {
   return { frontMatter, body };
 };
 
+import { marked } from "marked";
+
 const splitLocalizedBody = (body) => {
   const koMatch = body.match(/<!--\s*ko\s*-->\s*([\s\S]*?)(?=<!--\s*en\s*-->|$)/i);
   const enMatch = body.match(/<!--\s*en\s*-->\s*([\s\S]*)$/i);
@@ -74,84 +76,7 @@ const splitLocalizedBody = (body) => {
 };
 
 const markdownToHtml = (markdownText) => {
-  const lines = markdownText.split(/\r?\n/);
-  const html = [];
-  let inCode = false;
-  let inList = false;
-  let paragraphLines = [];
-
-  const flushParagraph = () => {
-    if (paragraphLines.length === 0) return;
-    html.push(`<p>${paragraphLines.join("<br />")}</p>`);
-    paragraphLines = [];
-  };
-
-  const closeList = () => {
-    if (!inList) return;
-    html.push("</ul>");
-    inList = false;
-  };
-
-  for (const rawLine of lines) {
-    const line = rawLine.trimEnd();
-
-    if (line.startsWith("```")) {
-      flushParagraph();
-      closeList();
-      if (!inCode) {
-        const lang = line.slice(3).trim();
-        const langClass = lang ? ` class="language-${escapeHtml(lang)}"` : "";
-        html.push(`<pre><code${langClass}>`);
-        inCode = true;
-      } else {
-        html.push("</code></pre>");
-        inCode = false;
-      }
-      continue;
-    }
-
-    if (inCode) {
-      html.push(`${escapeHtml(line)}\n`);
-      continue;
-    }
-
-    if (!line) {
-      flushParagraph();
-      closeList();
-      continue;
-    }
-
-    const heading = line.match(/^(#{1,3})\s+(.+)$/);
-    if (heading) {
-      flushParagraph();
-      closeList();
-      const level = heading[1].length;
-      html.push(`<h${level}>${escapeHtml(heading[2])}</h${level}>`);
-      continue;
-    }
-
-    const listItem = line.match(/^-\s+(.+)$/);
-    if (listItem) {
-      flushParagraph();
-      if (!inList) {
-        html.push("<ul>");
-        inList = true;
-      }
-      html.push(`<li>${escapeHtml(listItem[1])}</li>`);
-      continue;
-    }
-
-    closeList();
-    paragraphLines.push(escapeHtml(line));
-  }
-
-  flushParagraph();
-  closeList();
-  if (inCode) {
-    html.push("</code></pre>");
-  }
-
-  return html.join("\n");
+  return marked.parse(markdownText);
 };
 
 const buildPostHtml = (post) => {
@@ -168,135 +93,22 @@ const buildPostHtml = (post) => {
     <title>${escapeHtml(post.title.ko)} | Blog</title>
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <meta name="description" content="${escapeHtml(post.summary.ko)}" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
     <style>
-      :root {
-        --bg: #f5fbff;
-        --ink: #13212d;
-        --ink-soft: #425161;
-        --line: #d9ebf8;
-        --brand: #87ceeb;
-        --brand-strong: #5aaed6;
-        --card: rgba(255, 255, 255, 0.8);
-        --shadow: 0 12px 40px rgba(20, 67, 102, 0.12);
-        --bg-radial-1: #c8ebfb;
-        --bg-radial-2: #e7f7ff;
-        --header-border: #ffffff8c;
-        --header-bg-a: #f6fcffe8;
-        --header-bg-b: #f6fcffcc;
-        --surface: #ffffff;
-        --surface-soft: #ffffffba;
-        --chip-active-bg: #e7f6ff;
-        --chip-active-line: #9fc9e4;
-      }
-      html[data-theme="dark"] {
-        color-scheme: dark;
-        --bg: #0f151b;
-        --ink: #e9f2fa;
-        --ink-soft: #b5c4d2;
-        --line: #2d3d4c;
-        --card: rgba(20, 29, 38, 0.82);
-        --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
-        --bg-radial-1: #1e3345;
-        --bg-radial-2: #233646;
-        --header-border: #273748cc;
-        --header-bg-a: #111a24ee;
-        --header-bg-b: #111a24d8;
-        --surface: #1b2733;
-        --surface-soft: #203140;
-        --chip-active-bg: #223648;
-        --chip-active-line: #3f5870;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        font-family: "Noto Sans KR", sans-serif;
-        color: var(--ink);
-        line-height: 1.6;
-        background:
-          radial-gradient(circle at 20% -20%, var(--bg-radial-1) 0%, transparent 40%),
-          radial-gradient(circle at 90% 0%, var(--bg-radial-2) 0%, transparent 36%),
-          var(--bg);
-      }
-      .grain::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.14;
-        background-image: radial-gradient(#a7d0e61a 1px, transparent 1px);
-        background-size: 4px 4px;
-      }
-      .container {
-        width: min(1120px, 92%);
-        margin: 0 auto;
-      }
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        border-bottom: 1px solid var(--header-border);
-        background: linear-gradient(180deg, var(--header-bg-a), var(--header-bg-b));
-      }
-      .topbar {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 14px 0;
-      }
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        font-size: 1.15rem;
-      }
-      .brand-icon {
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 50%;
-        border: 1px solid var(--line);
-        object-fit: cover;
-        background: var(--surface-soft);
-      }
-      nav,
-      .top-actions {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-      nav {
-        grid-column: 2;
-        justify-self: center;
-      }
-      .top-actions {
-        grid-column: 3;
-        justify-self: end;
-      }
-      .chip,
-      .lang,
-      .theme-toggle {
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: var(--surface);
-        color: var(--ink);
-        padding: 0.42rem 0.74rem;
-        font-size: 0.85rem;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .chip.active {
-        background: var(--chip-active-bg);
-        border-color: var(--chip-active-line);
-      }
-      .lang.active {
-        background: linear-gradient(135deg, var(--brand), #d9f2ff);
-        color: #13212d;
-      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       main {
         flex: 1;
         padding: 1rem 0 2rem;
@@ -359,11 +171,7 @@ const buildPostHtml = (post) => {
         margin-top: 1rem;
         color: var(--ink);
       }
-      footer {
-        text-align: center;
-        padding: 1.4rem 0 2rem;
-        color: #5b7488;
-      }
+      
       @media (max-width: 900px) {
         .topbar {
           display: flex;
@@ -437,22 +245,7 @@ ${enBody}
           footer: "${i18n.en.footer}"
         }
       };
-      const themeToggleButton = document.querySelector("[data-theme-toggle]");
-      const darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
-      const params = new URLSearchParams(window.location.search);
-      const storedLang = localStorage.getItem("preferredLang");
-      const initialLang = ["ko", "en"].includes(params.get("lang")) ? params.get("lang") : (["ko", "en"].includes(storedLang) ? storedLang : "ko");
-
-      const getResolvedTheme = () => {
-        const explicit = document.documentElement.dataset.theme;
-        if (explicit === "dark" || explicit === "light") return explicit;
-        return darkMedia.matches ? "dark" : "light";
-      };
-
-      const syncThemeToggle = () => {
-        if (!themeToggleButton) return;
-        themeToggleButton.textContent = getResolvedTheme() === "dark" ? "Light" : "Dark";
-      };
+      
 
       const setLang = (lang) => {
         const t = uiPack[lang] || uiPack.ko;
@@ -492,21 +285,9 @@ ${enBody}
       document.querySelectorAll(".lang").forEach((button) => {
         button.addEventListener("click", () => setLang(button.dataset.lang));
       });
-      if (themeToggleButton) {
-        themeToggleButton.addEventListener("click", () => {
-          const currentTheme = getResolvedTheme();
-          document.documentElement.dataset.theme = currentTheme === "dark" ? "light" : "dark";
-          syncThemeToggle();
-        });
-      }
-      if (darkMedia.addEventListener) {
-        darkMedia.addEventListener("change", () => {
-          if (!document.documentElement.dataset.theme) syncThemeToggle();
-        });
-      }
-      syncThemeToggle();
-      setLang(initialLang);
+      setLang(getInitialLang());
     </script>
+    <script src="../assets/js/global.js"></script>
   </body>
 </html>`;
 };

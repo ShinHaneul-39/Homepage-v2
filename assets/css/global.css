@@ -1,0 +1,214 @@
+:root {
+  --bg: #f5fbff;
+  --ink: #13212d;
+  --ink-soft: #425161;
+  --line: #d9ebf8;
+  --brand: #87ceeb;
+  --card: rgba(255, 255, 255, 0.84);
+  --shadow: 0 12px 40px rgba(20, 67, 102, 0.12);
+  --bg-radial-1: #c8ebfb;
+  --bg-radial-2: #e7f7ff;
+  --header-border: #ffffff8c;
+  --header-bg-a: #f6fcffe8;
+  --header-bg-b: #f6fcffcc;
+  --surface: #ffffff;
+  --surface-soft: #ffffffd4;
+  --chip-active-bg: #e7f6ff;
+  --chip-active-line: #9fc9e4;
+  --footer-ink: #557085;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f151b;
+  --ink: #e9f2fa;
+  --ink-soft: #b5c4d2;
+  --line: #2d3d4c;
+  --card: rgba(20, 29, 38, 0.82);
+  --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
+  --bg-radial-1: #1e3345;
+  --bg-radial-2: #233646;
+  --header-border: #273748cc;
+  --header-bg-a: #111a24ee;
+  --header-bg-b: #111a24d8;
+  --surface: #1b2733;
+  --surface-soft: #1f2f3d;
+  --chip-active-bg: #223648;
+  --chip-active-line: #3f5870;
+  --footer-ink: #9db0c1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0f151b;
+    --ink: #e9f2fa;
+    --ink-soft: #b5c4d2;
+    --line: #2d3d4c;
+    --card: rgba(20, 29, 38, 0.82);
+    --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
+    --bg-radial-1: #1e3345;
+    --bg-radial-2: #233646;
+    --header-border: #273748cc;
+    --header-bg-a: #111a24ee;
+    --header-bg-b: #111a24d8;
+    --surface: #1b2733;
+    --surface-soft: #1f2f3d;
+    --chip-active-bg: #223648;
+    --chip-active-line: #3f5870;
+    --footer-ink: #9db0c1;
+  }
+  
+  :root:not([data-theme]) .lang.active {
+    color: rgb(19, 33, 45);
+  }
+
+  :root:not([data-theme]) .chip.active {
+    background: #223648;
+    border-color: #3f5870;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Quicksand", "Noto Sans KR", sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  background:
+    radial-gradient(circle at 20% -20%, var(--bg-radial-1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 0%, var(--bg-radial-2) 0%, transparent 36%),
+    var(--bg);
+}
+
+html:lang(ko) body {
+  font-family: "Gowun Dodum", "Noto Sans KR", sans-serif;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.page-shell {
+  flex: 1;
+  padding: 2rem 0 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--header-border);
+  background: linear-gradient(180deg, var(--header-bg-a), var(--header-bg-b));
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 0;
+  gap: 0.8rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: "Gowun Dodum", "Playfair Display", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-icon {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  background: var(--surface-soft);
+}
+
+nav {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  grid-column: 2;
+  justify-self: center;
+}
+
+.chip {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.44rem 0.78rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-family: "Quicksand", "Noto Sans KR", sans-serif;
+}
+
+.chip.active {
+  background: var(--chip-active-bg);
+  border-color: var(--chip-active-line);
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  grid-column: 3;
+  justify-self: end;
+}
+
+.chip:visited,
+.chip:hover,
+.chip:active {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.lang {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.lang.active {
+  background: linear-gradient(135deg, var(--brand), #d9f2ff);
+}
+
+html[data-theme="dark"] .lang.active {
+  color: rgb(19, 33, 45);
+}
+
+.theme-toggle {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+
+footer {
+  text-align: center;
+  color: var(--footer-ink);
+  padding: 1.5rem 0 2.2rem;
+}

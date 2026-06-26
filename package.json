@@ -4,6 +4,7 @@
     "new:post": "node scripts/new-post.mjs"
   },
   "dependencies": {
-    "@playwright/test": "^1.59.1"
+    "@playwright/test": "^1.59.1",
+    "marked": "^18.0.5"
   }
 }

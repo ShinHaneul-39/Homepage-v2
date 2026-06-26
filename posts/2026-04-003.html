@@ -6,135 +6,22 @@
     <title>디스코드 신규 멤버 온보딩 플레이북 | Blog</title>
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <meta name="description" content="첫 7일 동안 이탈률을 줄이기 위해 실제로 적용한 온보딩 흐름을 정리했습니다." />
+    <link rel="stylesheet" href="../assets/css/global.css" />
     <style>
-      :root {
-        --bg: #f5fbff;
-        --ink: #13212d;
-        --ink-soft: #425161;
-        --line: #d9ebf8;
-        --brand: #87ceeb;
-        --brand-strong: #5aaed6;
-        --card: rgba(255, 255, 255, 0.8);
-        --shadow: 0 12px 40px rgba(20, 67, 102, 0.12);
-        --bg-radial-1: #c8ebfb;
-        --bg-radial-2: #e7f7ff;
-        --header-border: #ffffff8c;
-        --header-bg-a: #f6fcffe8;
-        --header-bg-b: #f6fcffcc;
-        --surface: #ffffff;
-        --surface-soft: #ffffffba;
-        --chip-active-bg: #e7f6ff;
-        --chip-active-line: #9fc9e4;
-      }
-      html[data-theme="dark"] {
-        color-scheme: dark;
-        --bg: #0f151b;
-        --ink: #e9f2fa;
-        --ink-soft: #b5c4d2;
-        --line: #2d3d4c;
-        --card: rgba(20, 29, 38, 0.82);
-        --shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
-        --bg-radial-1: #1e3345;
-        --bg-radial-2: #233646;
-        --header-border: #273748cc;
-        --header-bg-a: #111a24ee;
-        --header-bg-b: #111a24d8;
-        --surface: #1b2733;
-        --surface-soft: #203140;
-        --chip-active-bg: #223648;
-        --chip-active-line: #3f5870;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        font-family: "Noto Sans KR", sans-serif;
-        color: var(--ink);
-        line-height: 1.6;
-        background:
-          radial-gradient(circle at 20% -20%, var(--bg-radial-1) 0%, transparent 40%),
-          radial-gradient(circle at 90% 0%, var(--bg-radial-2) 0%, transparent 36%),
-          var(--bg);
-      }
-      .grain::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.14;
-        background-image: radial-gradient(#a7d0e61a 1px, transparent 1px);
-        background-size: 4px 4px;
-      }
-      .container {
-        width: min(1120px, 92%);
-        margin: 0 auto;
-      }
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        border-bottom: 1px solid var(--header-border);
-        background: linear-gradient(180deg, var(--header-bg-a), var(--header-bg-b));
-      }
-      .topbar {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 14px 0;
-      }
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        font-size: 1.15rem;
-      }
-      .brand-icon {
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 50%;
-        border: 1px solid var(--line);
-        object-fit: cover;
-        background: var(--surface-soft);
-      }
-      nav,
-      .top-actions {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-      nav {
-        grid-column: 2;
-        justify-self: center;
-      }
-      .top-actions {
-        grid-column: 3;
-        justify-self: end;
-      }
-      .chip,
-      .lang,
-      .theme-toggle {
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: var(--surface);
-        color: var(--ink);
-        padding: 0.42rem 0.74rem;
-        font-size: 0.85rem;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .chip.active {
-        background: var(--chip-active-bg);
-        border-color: var(--chip-active-line);
-      }
-      .lang.active {
-        background: linear-gradient(135deg, var(--brand), #d9f2ff);
-        color: #13212d;
-      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       main {
         flex: 1;
         padding: 1rem 0 2rem;
@@ -197,11 +84,7 @@
         margin-top: 1rem;
         color: var(--ink);
       }
-      footer {
-        text-align: center;
-        padding: 1.4rem 0 2rem;
-        color: #5b7488;
-      }
+      
       @media (max-width: 900px) {
         .topbar {
           display: flex;
@@ -246,7 +129,8 @@
       <article>
         <section class="lang-content active" data-content="ko">
 <h2>왜 온보딩을 먼저 손봤나</h2>
-<p>신규 멤버가 들어온 뒤 24시간 안에 핵심 채널을 찾지 못하면 이탈 확률이 높아졌습니다.<br />운영자 안내 메시지를 늘리는 것보다, 첫 동선 자체를 줄이는 편이 더 효과적이었습니다.</p>
+<p>신규 멤버가 들어온 뒤 24시간 안에 핵심 채널을 찾지 못하면 이탈 확률이 높아졌습니다.
+운영자 안내 메시지를 늘리는 것보다, 첫 동선 자체를 줄이는 편이 더 효과적이었습니다.</p>
 <h2>적용한 구조</h2>
 <ul>
 <li>입장 직후 읽을 채널을 1개로 통합</li>
@@ -255,10 +139,12 @@
 </ul>
 <h2>결과</h2>
 <p>7일 잔존율이 이전 대비 의미 있게 개선되었고, 운영자가 반복 답변에 쓰는 시간을 줄일 수 있었습니다.</p>
+
         </section>
         <section class="lang-content" data-content="en">
 <h2>Why We Prioritized Onboarding</h2>
-<p>New members tended to churn when they could not identify the core channels in the first 24 hours.<br />Instead of adding more admin notices, simplifying the first user path had more impact.</p>
+<p>New members tended to churn when they could not identify the core channels in the first 24 hours.
+Instead of adding more admin notices, simplifying the first user path had more impact.</p>
 <h2>What We Changed</h2>
 <ul>
 <li>Merged welcome instructions into a single required channel</li>
@@ -267,6 +153,7 @@
 </ul>
 <h2>Outcome</h2>
 <p>Seven-day retention improved, and moderators spent less time on repetitive replies.</p>
+
         </section>
         <a class="back" href="../blog.html?lang=ko" data-back-ko="목록으로 돌아가기" data-back-en="Back to Blog">목록으로 돌아가기</a>
       </article>
@@ -293,22 +180,7 @@
           footer: "© 2022-2026 Shin Haneul, All Rights Reserved."
         }
       };
-      const themeToggleButton = document.querySelector("[data-theme-toggle]");
-      const darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
-      const params = new URLSearchParams(window.location.search);
-      const storedLang = localStorage.getItem("preferredLang");
-      const initialLang = ["ko", "en"].includes(params.get("lang")) ? params.get("lang") : (["ko", "en"].includes(storedLang) ? storedLang : "ko");
-
-      const getResolvedTheme = () => {
-        const explicit = document.documentElement.dataset.theme;
-        if (explicit === "dark" || explicit === "light") return explicit;
-        return darkMedia.matches ? "dark" : "light";
-      };
-
-      const syncThemeToggle = () => {
-        if (!themeToggleButton) return;
-        themeToggleButton.textContent = getResolvedTheme() === "dark" ? "Light" : "Dark";
-      };
+      
 
       const setLang = (lang) => {
         const t = uiPack[lang] || uiPack.ko;
@@ -348,20 +220,8 @@
       document.querySelectorAll(".lang").forEach((button) => {
         button.addEventListener("click", () => setLang(button.dataset.lang));
       });
-      if (themeToggleButton) {
-        themeToggleButton.addEventListener("click", () => {
-          const currentTheme = getResolvedTheme();
-          document.documentElement.dataset.theme = currentTheme === "dark" ? "light" : "dark";
-          syncThemeToggle();
-        });
-      }
-      if (darkMedia.addEventListener) {
-        darkMedia.addEventListener("change", () => {
-          if (!document.documentElement.dataset.theme) syncThemeToggle();
-        });
-      }
-      syncThemeToggle();
-      setLang(initialLang);
+      setLang(getInitialLang());
     </script>
+    <script src="../assets/js/global.js"></script>
   </body>
 </html>
