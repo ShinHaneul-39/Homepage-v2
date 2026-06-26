@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Career 필터 성능 개선 기록 | Blog</title>
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
-    <meta name="description" content="필터 조합이 늘어났을 때 UI 반응성을 유지하기 위해 적용한 최적화 포인트를 기록했습니다." />
+    <title>4월 운영/개발 월간 회고 | Blog</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <meta name="description" content="운영 자동화와 문서화 사이 균형을 다시 잡으면서 얻은 인사이트를 정리했습니다." />
     <style>
       :root {
         --bg: #f5fbff;
@@ -219,7 +219,7 @@
     <header>
       <div class="container topbar">
         <div class="brand">
-          <img class="brand-icon" src="../../profile.png" alt="" aria-hidden="true" />
+          <img class="brand-icon" src="../profile.png" alt="" aria-hidden="true" />
           <span data-i18n-key="brandTitle">신하늘</span>
         </div>
         <nav>
@@ -238,35 +238,39 @@
     <main class="container">
       <section class="hero">
         <div class="hero-main">
-          <p class="hero-meta">2026-04-14 · <span data-category-ko="개발 기록" data-category-en="Dev Log">개발 기록</span></p>
-          <h1 data-title-ko="Career 필터 성능 개선 기록" data-title-en="Career Filter Performance Improvement Notes">Career 필터 성능 개선 기록</h1>
-          <p class="muted" data-summary-ko="필터 조합이 늘어났을 때 UI 반응성을 유지하기 위해 적용한 최적화 포인트를 기록했습니다." data-summary-en="Optimization notes to keep UI responsiveness stable under complex filter combinations.">필터 조합이 늘어났을 때 UI 반응성을 유지하기 위해 적용한 최적화 포인트를 기록했습니다.</p>
+          <p class="hero-meta">2026-04-10 · <span data-category-ko="개인 회고" data-category-en="Retrospective">개인 회고</span></p>
+          <h1 data-title-ko="4월 운영/개발 월간 회고" data-title-en="April Operations and Development Retrospective">4월 운영/개발 월간 회고</h1>
+          <p class="muted" data-summary-ko="운영 자동화와 문서화 사이 균형을 다시 잡으면서 얻은 인사이트를 정리했습니다." data-summary-en="Lessons learned while rebalancing automation and documentation in April.">운영 자동화와 문서화 사이 균형을 다시 잡으면서 얻은 인사이트를 정리했습니다.</p>
         </div>
       </section>
       <article>
         <section class="lang-content active" data-content="ko">
-<h2>문제</h2>
-<p>필터 항목이 늘어나면서 조합 변경 시 렌더링이 눈에 띄게 느려졌습니다.</p>
-<h2>개선 방식</h2>
+<h2>잘한 점</h2>
 <ul>
-<li>원본 데이터는 불변으로 유지</li>
-<li>필터 상태 변경 시 필요한 계산만 재실행</li>
-<li>정렬 기준을 명시해 동일 조건에서 결과 순서 고정</li>
+<li>반복 업무를 자동화해 대응 시간을 단축</li>
+<li>변경 이력을 문서에 즉시 기록</li>
 </ul>
-<h2>회고</h2>
-<p>코드 복잡도를 크게 올리지 않고도 체감 반응성을 개선할 수 있었습니다.</p>
+<h2>아쉬운 점</h2>
+<p>자동화 범위를 넓히는 데 집중하다 보니, 팀 공유 문서 업데이트가 늦어진 구간이 있었습니다.</p>
+<h2>다음 달 실험</h2>
+<ul>
+<li>자동화 작업마다 운영 가이드 한 줄 추가</li>
+<li>주간 단위 회고를 월간 회고에 합치기</li>
+</ul>
         </section>
         <section class="lang-content" data-content="en">
-<h2>Problem</h2>
-<p>As filter options increased, each state change caused visible UI delays.</p>
-<h2>Approach</h2>
+<h2>What Worked</h2>
 <ul>
-<li>Kept source data immutable</li>
-<li>Recomputed only the required slices on state change</li>
-<li>Enforced deterministic sort order for stable results</li>
+<li>Automated repetitive tasks and reduced response time</li>
+<li>Logged changes into docs immediately</li>
 </ul>
-<h2>Retrospective</h2>
-<p>The UI became noticeably faster without introducing heavy architectural changes.</p>
+<h2>What Did Not</h2>
+<p>While expanding automation, shared documentation updates lagged behind.</p>
+<h2>Next Month Experiment</h2>
+<ul>
+<li>Add one operational guideline line for each automation task</li>
+<li>Merge weekly notes into a compact monthly retrospective</li>
+</ul>
         </section>
         <a class="back" href="../blog.html?lang=ko" data-back-ko="목록으로 돌아가기" data-back-en="Back to Blog">목록으로 돌아가기</a>
       </article>

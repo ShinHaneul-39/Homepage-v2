@@ -3,8 +3,8 @@ import path from "node:path";
 
 const projectRoot = path.resolve(process.cwd());
 const contentDir = path.join(projectRoot, "content", "posts");
-const dataDir = path.join(projectRoot, "pages", "data");
-const postsDir = path.join(projectRoot, "pages", "posts");
+const dataDir = path.join(projectRoot, "data");
+const postsDir = path.join(projectRoot, "posts");
 const outputJsonPath = path.join(dataDir, "blog_posts.json");
 
 const i18n = {
@@ -166,7 +166,7 @@ const buildPostHtml = (post) => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(post.title.ko)} | Blog</title>
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <meta name="description" content="${escapeHtml(post.summary.ko)}" />
     <style>
       :root {
@@ -381,7 +381,7 @@ const buildPostHtml = (post) => {
     <header>
       <div class="container topbar">
         <div class="brand">
-          <img class="brand-icon" src="../../profile.png" alt="" aria-hidden="true" />
+          <img class="brand-icon" src="../profile.png" alt="" aria-hidden="true" />
           <span data-i18n-key="brandTitle">신하늘</span>
         </div>
         <nav>

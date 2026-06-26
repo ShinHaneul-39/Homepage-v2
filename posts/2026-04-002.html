@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>홈페이지 v2 블로그 운영 체계 적용 안내 | Blog</title>
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
-    <meta name="description" content="시안 중심 구성을 제거하고 Markdown 기반 정적 운영 체계로 전환했습니다." />
+    <title>Career 필터 성능 개선 기록 | Blog</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <meta name="description" content="필터 조합이 늘어났을 때 UI 반응성을 유지하기 위해 적용한 최적화 포인트를 기록했습니다." />
     <style>
       :root {
         --bg: #f5fbff;
@@ -219,7 +219,7 @@
     <header>
       <div class="container topbar">
         <div class="brand">
-          <img class="brand-icon" src="../../profile.png" alt="" aria-hidden="true" />
+          <img class="brand-icon" src="../profile.png" alt="" aria-hidden="true" />
           <span data-i18n-key="brandTitle">신하늘</span>
         </div>
         <nav>
@@ -238,35 +238,35 @@
     <main class="container">
       <section class="hero">
         <div class="hero-main">
-          <p class="hero-meta">2026-04-25 · <span data-category-ko="공지/업데이트" data-category-en="Notice/Updates">공지/업데이트</span></p>
-          <h1 data-title-ko="홈페이지 v2 블로그 운영 체계 적용 안내" data-title-en="Homepage v2 Blog Operations Update">홈페이지 v2 블로그 운영 체계 적용 안내</h1>
-          <p class="muted" data-summary-ko="시안 중심 구성을 제거하고 Markdown 기반 정적 운영 체계로 전환했습니다." data-summary-en="Replaced draft-oriented blocks with a Markdown-driven static publishing workflow.">시안 중심 구성을 제거하고 Markdown 기반 정적 운영 체계로 전환했습니다.</p>
+          <p class="hero-meta">2026-04-14 · <span data-category-ko="개발 기록" data-category-en="Dev Log">개발 기록</span></p>
+          <h1 data-title-ko="Career 필터 성능 개선 기록" data-title-en="Career Filter Performance Improvement Notes">Career 필터 성능 개선 기록</h1>
+          <p class="muted" data-summary-ko="필터 조합이 늘어났을 때 UI 반응성을 유지하기 위해 적용한 최적화 포인트를 기록했습니다." data-summary-en="Optimization notes to keep UI responsiveness stable under complex filter combinations.">필터 조합이 늘어났을 때 UI 반응성을 유지하기 위해 적용한 최적화 포인트를 기록했습니다.</p>
         </div>
       </section>
       <article>
         <section class="lang-content active" data-content="ko">
-<h2>변경 요약</h2>
+<h2>문제</h2>
+<p>필터 항목이 늘어나면서 조합 변경 시 렌더링이 눈에 띄게 느려졌습니다.</p>
+<h2>개선 방식</h2>
 <ul>
-<li>블로그 시안 섹션 제거</li>
-<li>Markdown 원본을 기준으로 목록/상세 자동 생성</li>
-<li>카테고리/검색/페이지네이션 중심 탐색 구조 유지</li>
+<li>원본 데이터는 불변으로 유지</li>
+<li>필터 상태 변경 시 필요한 계산만 재실행</li>
+<li>정렬 기준을 명시해 동일 조건에서 결과 순서 고정</li>
 </ul>
-<h2>운영 방식</h2>
-<p>새 글은 `content/posts`에 Markdown 파일을 추가하고 빌드 스크립트를 실행하면 반영됩니다.</p>
-<h2>기대 효과</h2>
-<p>디자인 시안 없이도 실제 게시/수정/배포를 반복할 수 있는 구조를 확보했습니다.</p>
+<h2>회고</h2>
+<p>코드 복잡도를 크게 올리지 않고도 체감 반응성을 개선할 수 있었습니다.</p>
         </section>
         <section class="lang-content" data-content="en">
-<h2>Change Summary</h2>
+<h2>Problem</h2>
+<p>As filter options increased, each state change caused visible UI delays.</p>
+<h2>Approach</h2>
 <ul>
-<li>Removed draft-style blog sections</li>
-<li>Added build flow that generates list and detail pages from Markdown</li>
-<li>Kept category, search, and pagination for navigation</li>
+<li>Kept source data immutable</li>
+<li>Recomputed only the required slices on state change</li>
+<li>Enforced deterministic sort order for stable results</li>
 </ul>
-<h2>How To Operate</h2>
-<p>Add a new Markdown file in `content/posts` and run the build script.</p>
-<h2>Expected Impact</h2>
-<p>The blog is now ready for repeatable publish and update cycles.</p>
+<h2>Retrospective</h2>
+<p>The UI became noticeably faster without introducing heavy architectural changes.</p>
         </section>
         <a class="back" href="../blog.html?lang=ko" data-back-ko="목록으로 돌아가기" data-back-en="Back to Blog">목록으로 돌아가기</a>
       </article>

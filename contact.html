@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | Shin Haneul</title>
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="apple-touch-icon" href="../profile.png" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./profile.png" />
     <meta
       name="description"
       content="신하늘의 연락처 페이지입니다. 이메일 및 주요 소셜 채널 링크를 한곳에서 확인할 수 있습니다."
@@ -307,7 +307,7 @@
     <header>
       <div class="container topbar">
         <div class="brand">
-          <img class="brand-icon" src="../profile.png" alt="" aria-hidden="true" />
+          <img class="brand-icon" src="./profile.png" alt="" aria-hidden="true" />
           <span data-i18n="brand.title">신하늘</span>
         </div>
         <nav>
@@ -664,7 +664,7 @@
 
       const loadPersonalInfo = async () => {
         try {
-          const response = await fetch("../personal_info.csv");
+          const response = await fetch("./personal_info.csv");
           if (!response.ok) return;
           const csvText = await response.text();
           const rows = parseCsv(csvText);

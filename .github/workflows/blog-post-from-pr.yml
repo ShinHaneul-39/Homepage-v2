@@ -194,7 +194,7 @@ jobs:
             exit 0
           fi
           
-          git add content/posts pages/posts pages/data/blog_posts.json
+          git add content/posts posts data/blog_posts.json
           git commit -m "chore(blog): generate ${SLUG}"
           git push
 
@@ -210,8 +210,8 @@ jobs:
               `- slug: ${slug}`,
               "- 생성/갱신:",
               `  - content/posts/${slug}.md`,
-              build ? `  - pages/posts/${slug}.html` : null,
-              build ? "  - pages/data/blog_posts.json" : null
+              build ? `  - posts/${slug}.html` : null,
+              build ? "  - data/blog_posts.json" : null
             ].filter(Boolean).join("\n");
             await github.rest.issues.createComment({
               owner: context.repo.owner,

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog | Shin Haneul</title>
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="apple-touch-icon" href="../profile.png" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./profile.png" />
     <meta
       name="description"
       content="신하늘의 블로그 페이지입니다. 개발, 운영, 관심 주제의 게시글을 카테고리별로 확인할 수 있습니다."
@@ -224,7 +224,7 @@
     <header>
       <div class="container topbar">
         <div class="brand">
-          <img class="brand-icon" src="../profile.png" alt="" aria-hidden="true" />
+          <img class="brand-icon" src="./profile.png" alt="" aria-hidden="true" />
           <span data-i18n="brand.title">신하늘</span>
         </div>
         <nav>
@@ -533,7 +533,7 @@
       };
 
       const buildPostUrl = (post) => {
-        const baseUrl = post.url || `./posts/${post.slug}.html`;
+        const baseUrl = post.url || `./${post.slug}.html`;
         const storedCampaignParams = loadCampaignParams();
         const currentCampaignParams = extractCampaignParams(window.location.search);
         return mergeParamsIntoHref(baseUrl, { lang: viewState.lang, ...storedCampaignParams, ...currentCampaignParams });

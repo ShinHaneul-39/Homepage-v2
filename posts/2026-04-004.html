@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4월 운영/개발 월간 회고 | Blog</title>
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
-    <meta name="description" content="운영 자동화와 문서화 사이 균형을 다시 잡으면서 얻은 인사이트를 정리했습니다." />
+    <title>홈페이지 v2 블로그 운영 체계 적용 안내 | Blog</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <meta name="description" content="시안 중심 구성을 제거하고 Markdown 기반 정적 운영 체계로 전환했습니다." />
     <style>
       :root {
         --bg: #f5fbff;
@@ -219,7 +219,7 @@
     <header>
       <div class="container topbar">
         <div class="brand">
-          <img class="brand-icon" src="../../profile.png" alt="" aria-hidden="true" />
+          <img class="brand-icon" src="../profile.png" alt="" aria-hidden="true" />
           <span data-i18n-key="brandTitle">신하늘</span>
         </div>
         <nav>
@@ -238,39 +238,35 @@
     <main class="container">
       <section class="hero">
         <div class="hero-main">
-          <p class="hero-meta">2026-04-10 · <span data-category-ko="개인 회고" data-category-en="Retrospective">개인 회고</span></p>
-          <h1 data-title-ko="4월 운영/개발 월간 회고" data-title-en="April Operations and Development Retrospective">4월 운영/개발 월간 회고</h1>
-          <p class="muted" data-summary-ko="운영 자동화와 문서화 사이 균형을 다시 잡으면서 얻은 인사이트를 정리했습니다." data-summary-en="Lessons learned while rebalancing automation and documentation in April.">운영 자동화와 문서화 사이 균형을 다시 잡으면서 얻은 인사이트를 정리했습니다.</p>
+          <p class="hero-meta">2026-04-25 · <span data-category-ko="공지/업데이트" data-category-en="Notice/Updates">공지/업데이트</span></p>
+          <h1 data-title-ko="홈페이지 v2 블로그 운영 체계 적용 안내" data-title-en="Homepage v2 Blog Operations Update">홈페이지 v2 블로그 운영 체계 적용 안내</h1>
+          <p class="muted" data-summary-ko="시안 중심 구성을 제거하고 Markdown 기반 정적 운영 체계로 전환했습니다." data-summary-en="Replaced draft-oriented blocks with a Markdown-driven static publishing workflow.">시안 중심 구성을 제거하고 Markdown 기반 정적 운영 체계로 전환했습니다.</p>
         </div>
       </section>
       <article>
         <section class="lang-content active" data-content="ko">
-<h2>잘한 점</h2>
+<h2>변경 요약</h2>
 <ul>
-<li>반복 업무를 자동화해 대응 시간을 단축</li>
-<li>변경 이력을 문서에 즉시 기록</li>
+<li>블로그 시안 섹션 제거</li>
+<li>Markdown 원본을 기준으로 목록/상세 자동 생성</li>
+<li>카테고리/검색/페이지네이션 중심 탐색 구조 유지</li>
 </ul>
-<h2>아쉬운 점</h2>
-<p>자동화 범위를 넓히는 데 집중하다 보니, 팀 공유 문서 업데이트가 늦어진 구간이 있었습니다.</p>
-<h2>다음 달 실험</h2>
-<ul>
-<li>자동화 작업마다 운영 가이드 한 줄 추가</li>
-<li>주간 단위 회고를 월간 회고에 합치기</li>
-</ul>
+<h2>운영 방식</h2>
+<p>새 글은 `content/posts`에 Markdown 파일을 추가하고 빌드 스크립트를 실행하면 반영됩니다.</p>
+<h2>기대 효과</h2>
+<p>디자인 시안 없이도 실제 게시/수정/배포를 반복할 수 있는 구조를 확보했습니다.</p>
         </section>
         <section class="lang-content" data-content="en">
-<h2>What Worked</h2>
+<h2>Change Summary</h2>
 <ul>
-<li>Automated repetitive tasks and reduced response time</li>
-<li>Logged changes into docs immediately</li>
+<li>Removed draft-style blog sections</li>
+<li>Added build flow that generates list and detail pages from Markdown</li>
+<li>Kept category, search, and pagination for navigation</li>
 </ul>
-<h2>What Did Not</h2>
-<p>While expanding automation, shared documentation updates lagged behind.</p>
-<h2>Next Month Experiment</h2>
-<ul>
-<li>Add one operational guideline line for each automation task</li>
-<li>Merge weekly notes into a compact monthly retrospective</li>
-</ul>
+<h2>How To Operate</h2>
+<p>Add a new Markdown file in `content/posts` and run the build script.</p>
+<h2>Expected Impact</h2>
+<p>The blog is now ready for repeatable publish and update cycles.</p>
         </section>
         <a class="back" href="../blog.html?lang=ko" data-back-ko="목록으로 돌아가기" data-back-en="Back to Blog">목록으로 돌아가기</a>
       </article>

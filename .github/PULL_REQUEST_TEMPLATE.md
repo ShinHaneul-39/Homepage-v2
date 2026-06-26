@@ -5,7 +5,7 @@
 아래 메타데이터를 채우면 GitHub Actions가 자동으로 다음을 수행합니다.
 - slug 자동 생성(비워두면 자동)
 - `content/posts/*.md` 생성
-- `pages/posts/*.html`, `pages/data/blog_posts.json` 재생성
+- `posts/*.html`, `data/blog_posts.json` 재생성
 - 결과물을 이 PR 브랜치에 자동 커밋
 
 ### 메타데이터(필수)
