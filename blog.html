@@ -34,6 +34,31 @@
       .muted {
         color: var(--ink-soft);
       }
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .tab {
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        color: var(--ink-soft);
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .tab:hover {
+        background: var(--line);
+        color: var(--ink);
+      }
+      .tab.active {
+        background: var(--ink);
+        color: var(--surface);
+        border-color: var(--ink);
+      }
       .search {
         margin-top: 0.75rem;
       }
@@ -180,6 +205,39 @@
           footer: "© 2022-2026 Shin Haneul, All Rights Reserved."
         }
       };
+
+      const viewState = {
+        lang: "ko",
+        category: "all",
+        query: "",
+        page: 1,
+        pageSize: 6
+      };
+      let postsData = [];
+
+      const tabs = document.querySelectorAll(".tab");
+      const searchInput = document.querySelector(".search input");
+      const loadingState = document.getElementById("loadingState");
+      const emptyState = document.getElementById("emptyState");
+      const blogGrid = document.getElementById("blogGrid");
+      const pager = document.getElementById("pager");
+
+      const getLocalizedText = (value, lang) => {
+        if (!value) return "";
+        if (typeof value === "string") return value;
+        return value[lang] || value.ko || "";
+      };
+
+      const escapeHtml = (str) => {
+        if (!str) return "";
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      };
+
       const getFilteredPosts = () => {
         const query = viewState.query.trim().toLowerCase();
         return postsData.filter((post) => {

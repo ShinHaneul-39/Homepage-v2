@@ -337,6 +337,7 @@ const readPosts = async () => {
 
 const writeOutput = async (posts) => {
   await fs.mkdir(dataDir, { recursive: true });
+  await fs.rm(postsDir, { recursive: true, force: true });
   await fs.mkdir(postsDir, { recursive: true });
 
   const postList = posts.map((post) => ({

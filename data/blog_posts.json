@@ -1,58 +1,16 @@
 [
   {
-    "slug": "2026-04-004",
-    "date": "2026-04-25",
-    "category": "c4",
-    "title": {
-      "ko": "홈페이지 v2 블로그 운영 체계 적용 안내",
-      "en": "Homepage v2 Blog Operations Update"
-    },
-    "summary": {
-      "ko": "시안 중심 구성을 제거하고 Markdown 기반 정적 운영 체계로 전환했습니다.",
-      "en": "Replaced draft-oriented blocks with a Markdown-driven static publishing workflow."
-    },
-    "url": "./posts/2026-04-004.html"
-  },
-  {
-    "slug": "2026-04-003",
-    "date": "2026-04-20",
+    "slug": "2026-07-001",
+    "date": "2026-06-27",
     "category": "c1",
     "title": {
-      "ko": "디스코드 신규 멤버 온보딩 플레이북",
-      "en": "Discord New Member Onboarding Playbook"
+      "ko": "테스트 제목",
+      "en": "Test Title"
     },
     "summary": {
-      "ko": "첫 7일 동안 이탈률을 줄이기 위해 실제로 적용한 온보딩 흐름을 정리했습니다.",
-      "en": "A practical onboarding flow that reduced first-week churn in Discord communities."
+      "ko": "테스트 요약",
+      "en": "Test Summary"
     },
-    "url": "./posts/2026-04-003.html"
-  },
-  {
-    "slug": "2026-04-002",
-    "date": "2026-04-14",
-    "category": "c2",
-    "title": {
-      "ko": "Career 필터 성능 개선 기록",
-      "en": "Career Filter Performance Improvement Notes"
-    },
-    "summary": {
-      "ko": "필터 조합이 늘어났을 때 UI 반응성을 유지하기 위해 적용한 최적화 포인트를 기록했습니다.",
-      "en": "Optimization notes to keep UI responsiveness stable under complex filter combinations."
-    },
-    "url": "./posts/2026-04-002.html"
-  },
-  {
-    "slug": "2026-04-001",
-    "date": "2026-04-10",
-    "category": "c3",
-    "title": {
-      "ko": "4월 운영/개발 월간 회고",
-      "en": "April Operations and Development Retrospective"
-    },
-    "summary": {
-      "ko": "운영 자동화와 문서화 사이 균형을 다시 잡으면서 얻은 인사이트를 정리했습니다.",
-      "en": "Lessons learned while rebalancing automation and documentation in April."
-    },
-    "url": "./posts/2026-04-001.html"
+    "url": "./posts/2026-07-001.html"
   }
 ]
