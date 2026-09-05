@@ -224,6 +224,7 @@ ${enBody}
       </article>
     </main>
     <footer data-footer-ko="${i18n.ko.footer}" data-footer-en="${i18n.en.footer}">${i18n.ko.footer}</footer>
+    <script src="../assets/js/global.js"></script>
     <script>
       const uiPack = {
         ko: {
@@ -245,8 +246,6 @@ ${enBody}
           footer: "${i18n.en.footer}"
         }
       };
-      
-
       const setLang = (lang) => {
         const t = uiPack[lang] || uiPack.ko;
         const navPathMap = {
@@ -255,8 +254,15 @@ ${enBody}
           blog: "blog.html",
           contact: "contact.html"
         };
+        const storedCampaignParams =
+          typeof loadCampaignParams === "function" ? loadCampaignParams() : {};
+        const currentCampaignParams =
+          typeof extractCampaignParams === "function" ? extractCampaignParams(window.location.search) : {};
+        const mergedParams = { lang, ...storedCampaignParams, ...currentCampaignParams };
         document.documentElement.lang = lang;
-        localStorage.setItem("preferredLang", lang);
+        try {
+          window.localStorage.setItem("preferredLang", lang);
+        } catch (e) {}
         document.querySelectorAll("[data-i18n-key]").forEach((element) => {
           const key = element.dataset.i18nKey;
           if (t[key]) element.textContent = t[key];
@@ -265,7 +271,11 @@ ${enBody}
           const page = link.dataset.nav;
           if (t[page]) link.textContent = t[page];
           const target = navPathMap[page] || "index.html";
-          link.href = "../" + target + "?lang=" + lang;
+          const baseHref = "../" + target;
+          link.href =
+            typeof mergeParamsIntoHref === "function"
+              ? mergeParamsIntoHref(baseHref, mergedParams)
+              : baseHref + "?lang=" + lang;
         });
         document.querySelectorAll(".lang").forEach((button) => button.classList.toggle("active", button.dataset.lang === lang));
         document.querySelectorAll(".lang-content").forEach((section) => section.classList.toggle("active", section.dataset.content === lang));
@@ -278,7 +288,10 @@ ${enBody}
         title.textContent = lang === "en" ? title.dataset.titleEn : title.dataset.titleKo;
         summary.textContent = lang === "en" ? summary.dataset.summaryEn : summary.dataset.summaryKo;
         back.textContent = t.back;
-        back.href = "../blog.html?lang=" + lang;
+        back.href =
+          typeof mergeParamsIntoHref === "function"
+            ? mergeParamsIntoHref("../blog.html", mergedParams)
+            : "../blog.html?lang=" + lang;
         footer.textContent = t.footer;
       };
 
@@ -287,7 +300,6 @@ ${enBody}
       });
       setLang(getInitialLang());
     </script>
-    <script src="../assets/js/global.js"></script>
   </body>
 </html>`;
 };
