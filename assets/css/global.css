@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css");
+
 :root {
   --bg: #f5fbff;
   --ink: #13212d;
@@ -78,7 +80,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Quicksand", "Noto Sans KR", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
   color: var(--ink);
   line-height: 1.6;
   background:
@@ -87,8 +89,17 @@ body {
     var(--bg);
 }
 
-html:lang(ko) body {
-  font-family: "Gowun Dodum", "Noto Sans KR", sans-serif;
+button,
+input,
+select,
+textarea,
+code {
+  font-family: inherit;
+}
+
+pre,
+pre code {
+  font-family: "Times New Roman", serif;
 }
 
 .container {
@@ -125,7 +136,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: "Gowun Dodum", "Playfair Display", serif;
+  font-family: inherit;
   font-size: 1.15rem;
   letter-spacing: 0.02em;
 }
@@ -156,7 +167,7 @@ nav {
   background: var(--surface);
   color: var(--ink);
   font-size: 0.85rem;
-  font-family: "Quicksand", "Noto Sans KR", sans-serif;
+  font-family: inherit;
 }
 
 .chip.active {

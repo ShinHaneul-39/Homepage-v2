@@ -153,9 +153,6 @@ const buildPostHtml = (post) => {
       .lang-content.active {
         display: block;
       }
-      code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      }
       pre {
         background: #0f1720;
         color: #eef4fa;
